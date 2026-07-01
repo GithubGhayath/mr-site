@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Multi Ripping Machine (MRM) — Engineering Showcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A bilingual (Arabic-default / English) engineering showcase for the **Multi Ripping Machine (MRM)** —
+a reverse-engineered double-arbor multi-rip wood cutting machine enhanced with live monitoring,
+production analytics, and predictive maintenance.
 
-## Available Scripts
+Graduation project · **Department of Mechanical Design Engineering · Damascus University**.
 
-In the project directory, you can run:
+## Tech stack
 
-### `npm start`
+- **Vite** + **React 19**
+- **framer-motion** — scroll-driven animations & the industrial saw-blade
+- **recharts** — live monitoring & analytics charts
+- **lucide-react** — icons
+- Custom lightweight i18n (Arabic/English) with full RTL/LTR support and a dark/light theme system
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Scripts
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install      # install dependencies
+npm run dev      # start the dev server (http://localhost:5173)
+npm run build    # production build → dist/
+npm run preview  # preview the production build locally
+```
 
-### `npm test`
+## Project structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+  main.jsx                # entry — wraps Theme + Language providers
+  App.jsx                 # composes all sections
+  index.css               # design tokens, themes, RTL, primitives
+  styles/sections.css     # section-specific styles + responsive rules
+  context/                # LanguageContext (i18n) + ThemeContext (dark/light)
+  i18n/translations.js    # all bilingual copy (ar default, en)
+  components/             # Navbar, SawBlade, LiveChart, shared UI helpers
+  sections/               # Hero, Overview, Machine, Components, Engineering,
+                          # Software, Monitoring, Analytics, Maintenance,
+                          # ProductionLine, Gallery, Documents, References,
+                          # Team, Contact, Footer
+  data/config.js          # external links + media file hooks
+```
 
-### `npm run build`
+## Adding media (photos, video, thesis PDF, production-line layout)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Drop the file into `public/` and set the matching field in `src/data/config.js`:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Field                  | Purpose                                   |
+| ---------------------- | ----------------------------------------- |
+| `THESIS_PDF`           | Enables the embedded PDF viewer (Documents) |
+| `PROJECT_VIDEO`        | Adds the project video to the Gallery     |
+| `PRODUCTION_LINE_IMG`  | Shows the production-line layout image     |
+| `GITHUB_REPO`          | The project/application repository link   |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Sections with unset media show a labelled placeholder until the file is added.
 
-### `npm run eject`
+## Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and
+publishes `dist/` to **GitHub Pages**. In the repository settings, set
+**Settings → Pages → Build and deployment → Source = GitHub Actions**.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The production base path (`/mr-site/`) is configured in `vite.config.js`.

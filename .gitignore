@@ -8,8 +8,12 @@
 # testing
 /coverage
 
-# production
+# production build output
 /build
+/dist
+
+# local tooling / editor
+.claude/
 
 # misc
 .DS_Store

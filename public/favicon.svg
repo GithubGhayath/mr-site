@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0d1512"/>
+  <g transform="translate(32 32)">
+    <g fill="#E05C1A">
+      <!-- 16 saw teeth -->
+      <g id="t">
+        <path d="M0 -30 L4 -24 L-4 -24 Z"/>
+      </g>
+      <use href="#t" transform="rotate(22.5)"/>
+      <use href="#t" transform="rotate(45)"/>
+      <use href="#t" transform="rotate(67.5)"/>
+      <use href="#t" transform="rotate(90)"/>
+      <use href="#t" transform="rotate(112.5)"/>
+      <use href="#t" transform="rotate(135)"/>
+      <use href="#t" transform="rotate(157.5)"/>
+      <use href="#t" transform="rotate(180)"/>
+      <use href="#t" transform="rotate(202.5)"/>
+      <use href="#t" transform="rotate(225)"/>
+      <use href="#t" transform="rotate(247.5)"/>
+      <use href="#t" transform="rotate(270)"/>
+      <use href="#t" transform="rotate(292.5)"/>
+      <use href="#t" transform="rotate(315)"/>
+      <use href="#t" transform="rotate(337.5)"/>
+    </g>
+    <circle r="23" fill="none" stroke="#cfd6d2" stroke-width="4"/>
+    <circle r="9" fill="#E05C1A"/>
+    <circle r="3.5" fill="#0d1512"/>
+  </g>
+</svg>
