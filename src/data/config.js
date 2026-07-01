@@ -2,7 +2,7 @@
 // NOTE: update GITHUB_REPO to the new application repository URL when available.
 export const config = {
   // The new project/application repository (replaces the old slicing-machine link).
-  GITHUB_REPO: 'https://github.com/GithubGhayath/mr-site',
+  GITHUB_REPO: 'git@github.com:GithubGhayath/Automating-slicing-machine-new-UI-new.git',
   EMAIL: 'businesscloude@gmail.com',
   university: {
     name: { en: 'Damascus University', ar: 'جامعة دمشق' },
