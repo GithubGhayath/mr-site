@@ -1,11 +1,11 @@
-import { User, Briefcase, ClipboardList, BookOpen } from 'lucide-react';
+import { Briefcase, ClipboardList, BookOpen } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal } from '../components/ui';
 
-function initials(name) {
+// Single stylized first initial (strip the Eng./م. title and any diacritic).
+function firstInitial(name) {
   const clean = name.replace(/^(Eng\.|م\.)\s*/i, '').trim();
-  const parts = clean.split(/\s+/).filter(Boolean);
-  return (parts[0]?.[0] || '') + (parts[1]?.[0] || '');
+  return clean.charAt(0);
 }
 
 export default function Team() {
@@ -21,8 +21,29 @@ export default function Team() {
           <Reveal key={m.name} delay={i * 0.1}>
             <div className="team-card card">
               <div className="team-photo" aria-hidden="true">
-                <span className="team-initials">{initials(m.name)}</span>
-                <User className="team-photo-icon" size={30} />
+                {/* machined dial ring around the initial */}
+                <svg className="team-ring" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="57" fill="none" stroke="var(--border-strong)" strokeWidth="1" />
+                  <g className="team-ring-spin">
+                    <circle
+                      cx="60" cy="60" r="50"
+                      fill="none" stroke="var(--accent)" strokeWidth="1.5"
+                      strokeDasharray="4 7" strokeLinecap="round" opacity="0.85"
+                    />
+                  </g>
+                  {[...Array(12)].map((_, k) => {
+                    const a = (k * 30 * Math.PI) / 180;
+                    return (
+                      <line
+                        key={k}
+                        x1={60 + 54 * Math.cos(a)} y1={60 + 54 * Math.sin(a)}
+                        x2={60 + 57 * Math.cos(a)} y2={60 + 57 * Math.sin(a)}
+                        stroke="var(--text-dim)" strokeWidth={k % 3 === 0 ? 1.6 : 0.8}
+                      />
+                    );
+                  })}
+                </svg>
+                <span className="team-initial">{firstInitial(m.name)}</span>
               </div>
               <h3 className="team-name">{m.name}</h3>
               <span className="team-role"><Briefcase size={14} />{m.role}</span>

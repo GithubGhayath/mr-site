@@ -19,8 +19,8 @@ function useTimer() {
 export default function Monitoring() {
   const { t } = useLang();
   const time = useTimer();
-  const shaftA = useLiveStat(57, 6);
-  const shaftB = useLiveStat(61, 6);
+  const shaftA = useLiveStat(57, 2.6);
+  const shaftB = useLiveStat(61, 2.4);
   const monitored = t('monitoring.monitored');
   const catchList = t('monitoring.catch');
 
@@ -51,8 +51,10 @@ export default function Monitoring() {
               unit="N·m"
               domain={[0, 100]}
               series={[
-                { key: 'a', name: 'Shaft A', color: 'var(--accent)', base: 57, jitter: 6, spike: true },
-                { key: 'b', name: 'Shaft B', color: 'var(--accent-2)', base: 61, jitter: 6 },
+                // Cutting torque: visible load swings, tooth-engagement ripple,
+                // sensor noise and occasional transient bumps (knots, density).
+                { key: 'a', name: 'Shaft A', color: 'var(--accent)', base: 57, osc: 4.5, ripple: 1.8, noise: 1.1, spike: true },
+                { key: 'b', name: 'Shaft B', color: 'var(--accent-2)', base: 61, osc: 3.8, ripple: 2.1, noise: 1.1, spike: true },
               ]}
             />
             <div className="mon-stats">
@@ -86,10 +88,12 @@ export default function Monitoring() {
             </div>
             <LiveChart
               unit="m/min"
-              domain={[8, 14]}
+              domain={[9, 13]}
               series={[
-                { key: 'in', name: 'Input', color: 'var(--brand-orange-light)', base: 11, jitter: 0.6 },
-                { key: 'out', name: 'Output', color: 'var(--brand-green-lighter)', base: 11.2, jitter: 0.6 },
+                // Conveyor speed is regulated: only measurement-precision noise
+                // and tiny operating drift — visually steady, never dead flat.
+                { key: 'in', name: 'Input', color: 'var(--brand-orange-light)', base: 11, osc: 0.14, ripple: 0.07, noise: 0.06 },
+                { key: 'out', name: 'Output', color: 'var(--brand-green-lighter)', base: 11.15, osc: 0.12, ripple: 0.08, noise: 0.06 },
               ]}
             />
           </div>

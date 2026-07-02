@@ -1,16 +1,17 @@
-import { TreePine, Scissors, Cog, PackageCheck } from 'lucide-react';
+import { TreePine, Scissors, Cog, PackageCheck, MoveHorizontal } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal, asset } from '../components/ui';
 import { config } from '../data/config';
 
 export default function ProductionLine() {
   const { t, lang } = useLang();
-  // A simple, conceptual 4-stage line with the MRM at its centre.
+  // The real sawmilling line the MRM belongs to, in feed order.
   const line = [
-    { icon: TreePine, en: 'Log intake', ar: 'استلام الجذوع' },
-    { icon: Scissors, en: 'Debark / prep', ar: 'التقشير والتهيئة' },
-    { icon: Cog, en: 'MRM — ripping', ar: 'MRM — التشريح', active: true },
-    { icon: PackageCheck, en: 'Sort & stack', ar: 'الفرز والتكديس' },
+    { icon: TreePine, en: 'Log loading deck', ar: 'منصّة تحميل الجذوع' },
+    { icon: Scissors, en: 'Twin vertical saw', ar: 'منشار عمودي مزدوج' },
+    { icon: MoveHorizontal, en: 'Centring conveyor', ar: 'ناقل توسيط' },
+    { icon: Cog, en: 'MRM — multi-ripping', ar: 'MRM — التشريح المتعدّد', active: true },
+    { icon: PackageCheck, en: 'Sweep-chain out-feed', ar: 'ناقل الإخراج السلسلي' },
   ];
 
   return (
@@ -39,7 +40,14 @@ export default function ProductionLine() {
       <Reveal delay={0.15}>
         {config.PRODUCTION_LINE_IMG ? (
           <div className="line-layout card">
-            <img src={asset(config.PRODUCTION_LINE_IMG)} alt="Production line layout" />
+            <img
+              src={asset(config.PRODUCTION_LINE_IMG)}
+              alt={t('line.caption')}
+              width="896"
+              height="466"
+              loading="lazy"
+            />
+            <p className="line-caption">{t('line.caption')}</p>
           </div>
         ) : (
           <div className="media-placeholder card">

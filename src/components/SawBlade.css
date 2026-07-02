@@ -1,7 +1,14 @@
-/* Full-viewport clipping layer so the blade can never create horizontal overflow. */
+/* Full-viewport clipping layer so the blade can never create horizontal overflow.
+   Height uses the LARGE viewport unit (100lvh): with inset:0 the fixed layer
+   resizes every time mobile browser chrome collapses, which re-lays-out the
+   blade mid-scroll and reads as page "shaking". */
 .saw-layer {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* fallback */
+  height: 100lvh;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
@@ -16,6 +23,8 @@
   margin-top: -320px;
   opacity: 0.22;
   will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .saw-svg {
@@ -45,5 +54,9 @@
     margin-top: -160px;
     inset-inline-end: -120px;
     opacity: 0.1;
+  }
+  /* drop-shadow on a large rotating SVG is a per-frame repaint on mobile GPUs */
+  .saw-svg {
+    filter: none;
   }
 }

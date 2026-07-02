@@ -1,4 +1,4 @@
-import { GraduationCap, Cog, Cpu, Activity } from 'lucide-react';
+import { Landmark, Cog, Cpu, Activity } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal } from '../components/ui';
 
@@ -18,7 +18,7 @@ export default function Overview() {
           <Reveal delay={0.1}><p className="body">{t('overview.p2')}</p></Reveal>
           <Reveal delay={0.2}>
             <div className="overview-dept card">
-              <GraduationCap className="accent" size={26} />
+              <Landmark className="accent" size={26} />
               <div>
                 <strong>{t('overview.university')}</strong>
                 <span>{t('overview.dept')}</span>

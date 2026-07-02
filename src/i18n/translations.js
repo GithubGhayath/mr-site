@@ -25,7 +25,7 @@ export const translations = {
     },
 
     hero: {
-      badge: 'Graduation Project · Damascus University',
+      badge: 'Engineering Project · Damascus University',
       title1: 'Multi Ripping',
       title2: 'Machine',
       abbr: 'MRM',
@@ -70,6 +70,17 @@ export const translations = {
         { k: 'Min log length', v: '500 mm (470 mm theoretical)' },
         { k: 'Feed speed', v: '11 m/min' },
       ],
+      diagram: {
+        title: 'Cutting arbor assembly — side view',
+        frontTitle: 'Front view',
+        frontNote: 'Blades overlap — only one is visible',
+        blade: 'Blade (edge view)',
+        spacer: 'Spacers 5 / 2.5 / 32 mm',
+        bolt: 'Locking bolt',
+        coupling: 'Coupling',
+        motor: '55 kW motor',
+        shaft: 'Cantilever shaft',
+      },
     },
 
     components: {
@@ -122,7 +133,7 @@ export const translations = {
       p2: 'These models give the cutting force, the forces acting on the wood, the shaft torque and the required motor power for each wood species and operating condition. Those numbers became the design inputs for the shafts, bearings, motors and feed system — the calculations literally shaped the hardware.',
       theoryTitle: 'The engineering thesis',
       theoryDesc:
-        'The full graduation thesis documents the machine design, the calculations, component selection, engineering analysis, and the manufacturing and assembly drawings.',
+        'The full engineering thesis documents the machine design, the calculations, component selection, engineering analysis, and the manufacturing and assembly drawings.',
       contents: [
         'Machine design',
         'Force & load calculations',
@@ -160,12 +171,64 @@ export const translations = {
         'Forces on the wood',
         'Machine parameters',
       ],
-      modulesTitle: 'Application modules',
-      modules: [
-        { title: 'Home', desc: 'Real-time cutting calculations and force analysis for the selected wood.' },
-        { title: 'Monitoring', desc: 'Live simulated sensor data on shafts, motors, torque and conveyors.' },
-        { title: 'History', desc: 'Production analytics, stored operations and per-operation PDF export.' },
-        { title: 'Maintenance', desc: 'Component lifetime tracking with automatic protection.' },
+      videoTitle: 'Watch the application in action',
+      videoCaption:
+        'A full walkthrough of the MRM controller — wood selection, force calculation, live monitoring, history analytics and PDF export. Playback is slightly accelerated for presentation.',
+      screens: [
+        {
+          title: 'Home — the calculation engine',
+          desc:
+            'The operator selects a wood species and the software loads its material data — shear yield stress, specific cutting work and friction coefficient. One press of "Calculate Forces" resolves the complete cutting model: all seven force components (cutting, active, thrust, shear, friction on rake, normal to rake and normal to shear), the tool parameters (feed and cutting velocities, feed per tooth, spindle speed, teeth in cut, volumetric rate) and the derived angles. The lower charts plot cutting force Fc(h) and shaft moment T(h) against chip thickness, and a table lists every tooth angle currently engaged in the cut. Machine control — Start, Stop, End Process — and the run timer live on the same screen.',
+          points: [
+            '7 force components computed instantly',
+            'Fc(h) and T(h) curves with fitted equations',
+            'Teeth-in-cut angles with chip thicknesses',
+            'Start / Stop / End Process control with timer',
+          ],
+        },
+        {
+          title: 'Monitoring — the live operator view',
+          desc:
+            'Four live chart groups stream the state of the machine: instantaneous torque on both cutting shafts with current, maximum and average values; cumulative production with current and average slice rates; input and output conveyor speeds tracking the fixed 11 m/min feed; and the individual torques of the four feed shafts. A status badge and operating-time clock confirm the machine is running — a flat line at zero on any shaft immediately flags a fault.',
+          points: [
+            'Shaft A / B torque with live statistics',
+            'Production rate in slices per minute',
+            'Input / output conveyor speed',
+            'Per-shaft feed torque monitoring',
+          ],
+        },
+        {
+          title: 'History — production analytics',
+          desc:
+            'For any date range, the History screen aggregates the stored operations into economics: total fees, consumed energy, production volume and process count, alongside the average cutting force and cutting moment with their maxima, and the energy efficiency in m³ per kWh with the average cost per cubic metre. Interactive charts show the production trend across processes, the distribution of wood types, a force-component comparison per process, and a radar profile of the full force signature of the most recent cut.',
+          points: [
+            'KPIs over custom date ranges',
+            'Energy efficiency and cost per m³',
+            'Wood-type distribution and trends',
+            'Force radar of the latest process',
+          ],
+        },
+        {
+          title: 'Process records — inspection & PDF export',
+          desc:
+            'Every cutting process is stored in the relational database and listed in the records table with its wood type, dimensions, volume, fees and energy. Selecting a row opens the inspection panel: the operation conditions (cutting speed, feed rate, shaft speed, consumed energy, friction, shear and centre angles, cutting moment) and a force-breakdown chart of all seven components. One click exports the selected operation as a PDF report.',
+          points: [
+            'Full operations table from the database',
+            'Per-operation condition sheet',
+            'Force breakdown of every component',
+            'One-click PDF report export',
+          ],
+        },
+        {
+          title: 'Maintenance — configuration & status',
+          desc:
+            'The Maintenance screen keeps the machine configuration in view: the blade set (350 mm diameter, 20 teeth, 3.9 mm kerf, 10 blades per arbor), the operating parameters (11 m/min feed, 64 m/s cutting velocity, 20° rake angle, 100 mm depth of cut) and the live machine status with the last check and next scheduled service. Preventive-maintenance scheduling and blade-wear tracking dock into this screen.',
+          points: [
+            'Blade configuration at a glance',
+            'Operating parameter snapshot',
+            'Machine status and service schedule',
+          ],
+        },
       ],
     },
 
@@ -235,8 +298,10 @@ export const translations = {
     line: {
       label: 'Production Line',
       heading: 'One machine in a bigger line',
-      p1: 'The MRM does not work alone. It is one station inside a complete wood production line, surrounded by machines that prepare the logs before cutting and handle the planks afterwards.',
-      p2: 'This section is reserved for the full production-line layout, showing the MRM in context with the machines around it. The diagram will be added here.',
+      p1: 'The MRM does not work alone. It is one station inside a complete industrial sawmilling line, surrounded by machines that prepare the logs before cutting and handle the boards afterwards.',
+      p2: 'The layout below shows that line end-to-end. Logs are staged on a heavy-duty loading deck, broken down into open-faced cants by a twin vertical saw, centred on a belt conveyor, ripped into boards by the MRM — the multi-rip station at the heart of the line — and finally carried away on a sweep-chain conveyor for sorting and stacking.',
+      caption:
+        'Complete line layout: log loading deck → twin vertical saw → centring belt conveyor → MRM multi-rip station → sweep-chain out-feed.',
       placeholder: 'Production-line layout — coming soon.',
     },
 
@@ -253,8 +318,8 @@ export const translations = {
     docs: {
       label: 'Documents',
       heading: 'Read the engineering',
-      lead: 'The graduation thesis and supporting documents, viewable in the browser.',
-      thesisTitle: 'Graduation thesis',
+      lead: 'The engineering thesis and supporting documents, viewable in the browser.',
+      thesisTitle: 'Engineering thesis',
       thesisDesc: 'Machine design, calculations, component selection, engineering analysis, and the manufacturing and assembly drawings.',
       viewer: 'Document viewer',
       viewerNote: 'The thesis PDF will be embedded here for in-browser viewing.',
@@ -297,13 +362,13 @@ export const translations = {
           ],
         },
       ],
-      note: 'The full reference list is documented in the graduation thesis.',
+      note: 'The full reference list is documented in the engineering thesis.',
     },
 
     team: {
       label: 'Team',
       heading: 'The engineers behind the machine',
-      lead: 'A graduation project from the Department of Mechanical Design Engineering, Damascus University.',
+      lead: 'An engineering project from the Department of Mechanical Design Engineering, Damascus University.',
       role: 'Role',
       responsibilities: 'Responsibilities',
       bio: 'Biography',
@@ -311,21 +376,21 @@ export const translations = {
       members: [
         { name: 'Eng. Ghayath Ahmad Al Ali Al Razaj', role: 'To be completed', resp: 'To be completed.', bio: 'To be completed.' },
         { name: 'Eng. Manar Muwaffaq Abdul Hadi', role: 'To be completed', resp: 'To be completed.', bio: 'To be completed.' },
-        { name: 'Eng. Zukaa', role: 'To be completed', resp: 'To be completed.', bio: 'To be completed.' },
+        { name: 'Eng. Zukaa Abu Al-Khair', role: 'To be completed', resp: 'To be completed.', bio: 'To be completed.' },
       ],
     },
 
     contact: {
       label: 'Contact',
       heading: 'Want to know more?',
-      lead: 'This project sits at the intersection of mechanical design, software and material science. Reach out to learn more about the Multi Ripping Machine or the software behind it.',
+      lead: 'This project lies at the intersection of Mechanical Design Engineering and Software Engineering. Reach out to learn more about the Multi Ripping Machine or the software behind it.',
       github: 'View on GitHub',
       email: 'Email us',
     },
 
     footer: {
       tagline: 'Multi Ripping Machine — a smart double-arbor multi-rip saw.',
-      project: 'Graduation project · Department of Mechanical Design Engineering · Damascus University',
+      project: 'Engineering project · Department of Mechanical Design Engineering · Damascus University',
       rights: 'All rights reserved.',
       built: 'Engineered with precision.',
     },
@@ -364,7 +429,7 @@ export const translations = {
     },
 
     hero: {
-      badge: 'مشروع تخرّج · جامعة دمشق',
+      badge: 'مشروع هندسي · جامعة دمشق',
       title1: 'آلة التشريح',
       title2: 'المتعدّدة',
       abbr: 'MRM',
@@ -409,6 +474,17 @@ export const translations = {
         { k: 'أدنى طول جذع', v: '٥٠٠ مم (٤٧٠ نظرياً)' },
         { k: 'سرعة التغذية', v: '١١ م/د' },
       ],
+      diagram: {
+        title: 'مجموعة محور القطع — منظر جانبي',
+        frontTitle: 'منظر أمامي',
+        frontNote: 'الشفرات متطابقة — تظهر شفرة واحدة فقط',
+        blade: 'شفرة (منظر حدّي)',
+        spacer: 'فواصل ٥ / ٢٫٥ / ٣٢ مم',
+        bolt: 'برغي التثبيت',
+        coupling: 'قارنة',
+        motor: 'محرّك ٥٥ ك.و',
+        shaft: 'محور كابولي',
+      },
     },
 
     components: {
@@ -461,7 +537,7 @@ export const translations = {
       p2: 'تعطي هذه النماذج قوّة القطع، والقوى المؤثّرة في الخشب، وعزم المحور، والقدرة المطلوبة للمحرّك عند كل نوع خشب وشرط تشغيل. صارت هذه الأرقام مدخلاتِ تصميم المحاور والمحامل والمحرّكات ونظام التغذية — فالحسابات هي التي شكّلت العتاد فعلياً.',
       theoryTitle: 'الأطروحة الهندسية',
       theoryDesc:
-        'توثّق أطروحة التخرّج الكاملة تصميم الآلة، والحسابات، واختيار المكوّنات، والتحليل الهندسي، ومخطّطات التصنيع والتجميع.',
+        'توثّق الأطروحة الهندسية الكاملة تصميم الآلة، والحسابات، واختيار المكوّنات، والتحليل الهندسي، ومخطّطات التصنيع والتجميع.',
       contents: [
         'تصميم الآلة',
         'حسابات القوى والأحمال',
@@ -499,12 +575,64 @@ export const translations = {
         'القوى على الخشب',
         'معاملات الآلة',
       ],
-      modulesTitle: 'وحدات البرنامج',
-      modules: [
-        { title: 'الرئيسية', desc: 'حسابات قطع وتحليل قوى في الزمن الحقيقي للخشب المختار.' },
-        { title: 'المراقبة', desc: 'بيانات حسّاسات حيّة مُحاكاة للمحاور والمحرّكات والعزم والنواقل.' },
-        { title: 'السجلّ', desc: 'تحليلات إنتاج وعمليات مخزّنة وتصدير PDF لكل عملية.' },
-        { title: 'الصيانة', desc: 'تتبّع عمر المكوّنات مع حماية تلقائية.' },
+      videoTitle: 'شاهد البرنامج أثناء العمل',
+      videoCaption:
+        'جولة كاملة في برنامج التحكّم بالآلة — اختيار الخشب، وحساب القوى، والمراقبة الحيّة، وتحليلات السجلّ، وتصدير PDF. سُرِّع العرض قليلاً لسلاسة التقديم.',
+      screens: [
+        {
+          title: 'الرئيسية — محرّك الحساب',
+          desc:
+            'يختار المشغّل نوع الخشب فيحمّل البرنامج بياناته المادية — إجهاد القص، والشغل النوعي للقطع، ومعامل الاحتكاك. وبضغطة واحدة على «حساب القوى» يُحلّ نموذج القطع كاملاً: مكوّنات القوى السبعة (القطع، والفعّالة، والدفع، والقص، والاحتكاك على وجه الميل، والعمودية على الميل، والعمودية على القص)، ومعاملات الأداة (سرعتا التغذية والقطع، والتغذية لكل سنّ، ودوران المحور، والأسنان المشتبكة، والمعدّل الحجمي)، والزوايا المشتقّة. يرسم المخطّطان السفليان قوّة القطع Fc(h) وعزم المحور T(h) بدلالة سماكة الرقاقة، ويسرد جدولٌ زوايا الأسنان المشتبكة في القطع لحظياً. وتقبع أزرار التحكّم — تشغيل وإيقاف وإنهاء العملية — مع مؤقّت التشغيل في الشاشة نفسها.',
+          points: [
+            'مكوّنات القوى السبعة تُحسَب فوراً',
+            'منحنيا Fc(h) وT(h) مع معادلات التوفيق',
+            'زوايا الأسنان المشتبكة وسماكات رقائقها',
+            'تشغيل / إيقاف / إنهاء العملية مع مؤقّت',
+          ],
+        },
+        {
+          title: 'المراقبة — واجهة المشغّل الحيّة',
+          desc:
+            'أربع مجموعات مخطّطات حيّة تبثّ حالة الآلة: العزم اللحظي على محورَي القطع مع القيم الحالية والقصوى والمتوسّطة؛ والإنتاج التراكمي مع معدّل الشرائح الحالي والمتوسّط؛ وسرعتا ناقلَي الدخول والخروج حول سرعة التغذية الثابتة ١١ م/د؛ وعزوم محاور التغذية الأربعة كلٌّ على حدة. وتؤكّد شارة الحالة وساعة زمن التشغيل أن الآلة تعمل — وأي خطّ مستوٍ عند الصفر على محورٍ ما ينذر فوراً بعطل.',
+          points: [
+            'عزم المحورين A وB مع إحصاءات حيّة',
+            'معدّل الإنتاج بالشرائح في الدقيقة',
+            'سرعة ناقلَي الدخول والخروج',
+            'مراقبة عزم كل محور تغذية',
+          ],
+        },
+        {
+          title: 'السجلّ — تحليلات الإنتاج',
+          desc:
+            'لأي مجال تواريخ، تجمع شاشة السجلّ العمليات المخزّنة في أرقام اقتصادية: إجمالي الرسوم، والطاقة المستهلَكة، وحجم الإنتاج، وعدد العمليات، إلى جانب متوسّطي قوّة القطع وعزم القطع مع قيمهما القصوى، وكفاءة الطاقة بالمتر المكعّب لكل كيلوواط ساعي مع متوسّط كلفة المتر المكعّب. وتعرض المخطّطات التفاعلية اتجاه الإنتاج عبر العمليات، وتوزّع أنواع الخشب، ومقارنة مكوّنات القوى لكل عملية، ومخطّطاً راداريّاً لبصمة القوى الكاملة لآخر قطع.',
+          points: [
+            'مؤشّرات أداء لمجالات تواريخ مخصّصة',
+            'كفاءة الطاقة وكلفة المتر المكعّب',
+            'توزّع أنواع الخشب والاتجاهات',
+            'رادار القوى لآخر عملية',
+          ],
+        },
+        {
+          title: 'سجلّ العمليات — الفحص وتصدير PDF',
+          desc:
+            'تُخزَّن كل عمليّة قطع في قاعدة البيانات العلائقية وتُسرَد في جدول السجلات مع نوع الخشب والأبعاد والحجم والرسوم والطاقة. اختيار أي صفّ يفتح لوحة الفحص: شروط التشغيل (سرعة القطع، ومعدّل التغذية، ودوران المحور، والطاقة المستهلَكة، وزوايا الاحتكاك والقص والمركز، وعزم القطع) مع مخطّط تفصيل القوى لمكوّناتها السبعة. وبنقرة واحدة تُصدَّر العملية المختارة تقريرَ PDF.',
+          points: [
+            'جدول العمليات الكامل من قاعدة البيانات',
+            'ورقة شروط لكل عملية',
+            'تفصيل القوى لكل مكوّن',
+            'تصدير تقرير PDF بنقرة واحدة',
+          ],
+        },
+        {
+          title: 'الصيانة — الإعدادات والحالة',
+          desc:
+            'تُبقي شاشة الصيانة إعدادات الآلة في المتناول: طقم الشفرات (قطر ٣٥٠ مم، ٢٠ سنّاً، شقّ ٣٫٩ مم، ١٠ شفرات لكل محور)، ومعاملات التشغيل (تغذية ١١ م/د، سرعة قطع ٦٤ م/ثا، زاوية ميل ٢٠°، عمق قطع ١٠٠ مم)، وحالة الآلة الحيّة مع آخر فحص وموعد الخدمة القادم. وفي هذه الشاشة ترسو جدولة الصيانة الوقائية وتتبّع اهتراء الشفرات.',
+          points: [
+            'إعداد الشفرات بلمحة',
+            'لقطة لمعاملات التشغيل',
+            'حالة الآلة وجدول الخدمة',
+          ],
+        },
       ],
     },
 
@@ -574,8 +702,10 @@ export const translations = {
     line: {
       label: 'خط الإنتاج',
       heading: 'آلةٌ ضمن خطٍّ أكبر',
-      p1: 'لا تعمل الآلة بمعزل. هي محطّة واحدة ضمن خط إنتاج خشب متكامل، تحيط بها آلات تهيّئ الجذوع قبل القطع وتعالج الألواح بعده.',
-      p2: 'خُصّص هذا القسم لمخطّط خط الإنتاج الكامل، مُظهِراً الآلة في سياقها مع الآلات المحيطة بها. سيُضاف المخطّط هنا.',
+      p1: 'لا تعمل الآلة بمعزل. هي محطّة واحدة ضمن خط نشرٍ صناعي متكامل، تحيط بها آلات تهيّئ الجذوع قبل القطع وتعالج الألواح بعده.',
+      p2: 'يعرض المخطّط أدناه الخطّ من أوّله إلى آخره: تُهيَّأ الجذوع على منصّة تحميل ثقيلة، ثم يحوّلها منشار عمودي مزدوج إلى كتلٍ مستوية الوجه، تُوسَّط على ناقل سيري، فتشرّحها الآلة MRM — محطّة التشريح المتعدّد في قلب الخط — إلى ألواح، وأخيراً يحملها ناقل سلسلي نحو الفرز والتكديس.',
+      caption:
+        'مخطّط الخط الكامل: منصّة تحميل الجذوع ← منشار عمودي مزدوج ← ناقل توسيط سيري ← محطّة التشريح المتعدّد MRM ← ناقل الإخراج السلسلي.',
       placeholder: 'مخطّط خط الإنتاج — قريباً.',
     },
 
@@ -592,8 +722,8 @@ export const translations = {
     docs: {
       label: 'الوثائق',
       heading: 'اقرأ الهندسة',
-      lead: 'أطروحة التخرّج والوثائق الداعمة، قابلة للعرض داخل المتصفّح.',
-      thesisTitle: 'أطروحة التخرّج',
+      lead: 'الأطروحة الهندسية والوثائق الداعمة، قابلة للعرض داخل المتصفّح.',
+      thesisTitle: 'الأطروحة الهندسية',
       thesisDesc: 'تصميم الآلة والحسابات واختيار المكوّنات والتحليل الهندسي ومخطّطات التصنيع والتجميع.',
       viewer: 'عارض الوثائق',
       viewerNote: 'ستُضمَّن أطروحة الـ PDF هنا للعرض داخل المتصفّح.',
@@ -636,35 +766,35 @@ export const translations = {
           ],
         },
       ],
-      note: 'قائمة المراجع الكاملة موثّقة في أطروحة التخرّج.',
+      note: 'قائمة المراجع الكاملة موثّقة في الأطروحة الهندسية.',
     },
 
     team: {
       label: 'الفريق',
       heading: 'المهندسون خلف الآلة',
-      lead: 'مشروع تخرّج من قسم هندسة التصميم الميكانيكي، جامعة دمشق.',
+      lead: 'مشروع هندسي من قسم هندسة التصميم الميكانيكي، جامعة دمشق.',
       role: 'الدور',
       responsibilities: 'المسؤوليات',
       bio: 'نبذة',
       tbd: 'يُستكمل لاحقاً.',
       members: [
-        { name: 'م. غياث أحمد العلي الرزّاج', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
+        { name: 'م. غياث أحمد العلي الرزج', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
         { name: 'م. منار موفّق عبد الهادي', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
-        { name: 'م. ذكاء', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
+        { name: 'م. ذُكاء أبو الخير', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
       ],
     },
 
     contact: {
       label: 'تواصل',
       heading: 'تريد معرفة المزيد؟',
-      lead: 'يقع هذا المشروع عند تقاطع التصميم الميكانيكي والبرمجيات وعلم المواد. تواصل معنا لمعرفة المزيد عن آلة التشريح المتعدّدة أو البرنامج الذي يقف خلفها.',
+      lead: 'يقع هذا المشروع عند تقاطع هندسة التصميم الميكانيكي وهندسة البرمجيات. تواصل معنا لمعرفة المزيد عن آلة التشريح المتعدّدة أو البرنامج الذي يقف خلفها.',
       github: 'عرض على GitHub',
       email: 'راسلنا',
     },
 
     footer: {
       tagline: 'آلة التشريح المتعدّدة — آلة تشريح ذكية بمحورَي قطع.',
-      project: 'مشروع تخرّج · قسم هندسة التصميم الميكانيكي · جامعة دمشق',
+      project: 'مشروع هندسي · قسم هندسة التصميم الميكانيكي · جامعة دمشق',
       rights: 'جميع الحقوق محفوظة.',
       built: 'صُنِعت بدقّة هندسية.',
     },

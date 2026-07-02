@@ -20,18 +20,43 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      const points = NAV.map((id) => {
+    // Reading offsetTop for every section on every scroll event forces layout
+    // and janks mobile scrolling — cache the offsets and refresh them rarely
+    // (resize, media load, slow interval), then spy via rAF-throttled reads.
+    let points = [];
+    const compute = () => {
+      points = NAV.map((id) => {
         const el = document.getElementById(id);
         return el ? { id, top: el.offsetTop - 140 } : null;
-      }).filter(Boolean);
-      const cur = points.reverse().find((p) => window.scrollY >= p.top);
-      setActive(cur ? cur.id : 'hero');
+      })
+        .filter(Boolean)
+        .reverse();
+    };
+    compute();
+    const refresh = setInterval(compute, 3000);
+    window.addEventListener('resize', compute);
+    window.addEventListener('load', compute);
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const sy = window.scrollY;
+        setScrolled(sy > 40);
+        const cur = points.find((p) => sy >= p.top);
+        setActive(cur ? cur.id : 'hero');
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', compute);
+      window.removeEventListener('load', compute);
+      clearInterval(refresh);
+    };
   }, []);
 
   const go = useCallback((id) => {

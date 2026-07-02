@@ -159,16 +159,30 @@ function RipSchematic() {
           <rect x="70" y="80" width="130" height="140" fill="url(#logGrad)" />
         </motion.g>
 
-        {/* blades (cutting plane) */}
-        {[100, 130, 160, 190].map((x, i) => (
-          <motion.line
-            key={x}
-            x1={x} y1="70" x2={x} y2="230"
-            stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="4 4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 0.5] }}
-            transition={{ delay: 1.1 + i * 0.1, duration: 1, repeat: Infinity, repeatType: 'reverse' }}
-          />
+        {/* rip planes — the MRM cuts ALONG the log, so the glowing kerf lines
+            run horizontally (parallel to the feed) and march in the feed direction */}
+        {[112, 136, 160, 184].map((y, i) => (
+          <g key={y}>
+            <motion.line
+              x1="76" y1={y} x2="228" y2={y}
+              stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round"
+              strokeDasharray="8 6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.35, 0.95, 0.35], strokeDashoffset: [0, -28] }}
+              transition={{
+                opacity: { delay: 1.1 + i * 0.12, duration: 2, repeat: Infinity, ease: 'easeInOut' },
+                strokeDashoffset: { delay: 1.1, duration: 1.1, repeat: Infinity, ease: 'linear' },
+              }}
+            />
+            {/* glowing kerf entry point where the blade plane meets the wood */}
+            <motion.circle
+              cx="212" cy={y} r="3"
+              fill="var(--accent)"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ delay: 1.2 + i * 0.12, duration: 1.4, repeat: Infinity }}
+            />
+          </g>
         ))}
 
         {/* output planks */}

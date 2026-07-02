@@ -4,7 +4,7 @@ A bilingual (Arabic-default / English) engineering showcase for the **Multi Ripp
 a reverse-engineered double-arbor multi-rip wood cutting machine enhanced with live monitoring,
 production analytics, and predictive maintenance.
 
-Graduation project · **Department of Mechanical Design Engineering · Damascus University**.
+An engineering project · **Department of Mechanical Design Engineering · Damascus University**.
 
 ## Tech stack
 
@@ -49,10 +49,14 @@ Drop the file into `public/` and set the matching field in `src/data/config.js`:
 | ---------------------- | ----------------------------------------- |
 | `THESIS_PDF`           | Enables the embedded PDF viewer (Documents) |
 | `PROJECT_VIDEO`        | Adds the project video to the Gallery     |
-| `PRODUCTION_LINE_IMG`  | Shows the production-line layout image     |
-| `GITHUB_REPO`          | The project/application repository link   |
+| `PRODUCTION_LINE_IMG`  | Production-line layout image (set: `production-line.png`) |
+| `APP_DEMO_VIDEO`       | Desktop-app demo video in the Software section (set: `app-demo.mp4`) |
+| `GITHUB_REPO`          | The application repository link           |
 
-Sections with unset media show a labelled placeholder until the file is added.
+The Software section also displays the five real application screenshots from
+`public/screens/` (`app-home`, `app-monitoring`, `app-history`, `app-process`,
+`app-maintenance`). Sections with unset media show a labelled placeholder until
+the file is added.
 
 ## Deployment
 

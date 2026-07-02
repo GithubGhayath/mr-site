@@ -172,3 +172,13 @@
     display: none;
   }
 }
+
+/* Mobile: backdrop-filter blurs re-render on every scrolled frame under a
+   fixed bar — swap for a near-opaque background to keep scrolling smooth. */
+@media (max-width: 700px) {
+  .nav-scrolled {
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
