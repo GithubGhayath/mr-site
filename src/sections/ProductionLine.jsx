@@ -10,7 +10,7 @@ export default function ProductionLine() {
     { icon: TreePine, en: 'Log loading deck', ar: 'منصّة تحميل الجذوع' },
     { icon: Scissors, en: 'Twin vertical saw', ar: 'منشار عمودي مزدوج' },
     { icon: MoveHorizontal, en: 'Centring conveyor', ar: 'ناقل توسيط' },
-    { icon: Cog, en: 'MRM — multi-ripping', ar: 'MRM — التشريح المتعدّد', active: true },
+    { icon: Cog, en: 'SMRM — multi-ripping', ar: 'SMRM — التشريح المتعدّد', active: true },
     { icon: PackageCheck, en: 'Sweep-chain out-feed', ar: 'ناقل الإخراج السلسلي' },
   ];
 

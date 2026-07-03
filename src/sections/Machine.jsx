@@ -58,7 +58,9 @@ function MachineDiagram() {
   return (
     <div className="machine-diagram card">
       <div className="diagram-title mono">{d.title}</div>
-      <svg viewBox="0 0 460 290" className="machine-svg">
+      {/* direction:ltr pins text-anchor math so labels sit identically in both
+          languages — inherited rtl shifts every unanchored label sideways */}
+      <svg viewBox="0 0 460 290" className="machine-svg" style={{ direction: 'ltr' }}>
         {/* ——— SIDE VIEW ——— */}
         {/* centreline (dash-dot, CAD convention) */}
         <line x1="12" y1="150" x2="298" y2="150" stroke="var(--text-dim)" strokeWidth="0.7" strokeDasharray="12 4 2 4" opacity="0.6" />
@@ -81,8 +83,8 @@ function MachineDiagram() {
           <line key={i} x1={96 + i * 6} y1="172" x2={102 + i * 6} y2="128" stroke="var(--border-strong)" strokeWidth="0.7" opacity="0.6" />
         ))}
 
-        {/* shaft */}
-        <rect x="119" y="143" width="153" height="14" rx="2" fill="var(--text-dim)" opacity="0.85" />
+        {/* shaft — extends past the locking nut so a stub stays visible for its label */}
+        <rect x="119" y="143" width="163" height="14" rx="2" fill="var(--text-dim)" opacity="0.85" />
 
         {/* blade stack: tall thin discs (edge view) */}
         {blades.map((x) => (
@@ -103,28 +105,31 @@ function MachineDiagram() {
         <rect x={stackEnd + 3} y="136" width="17" height="28" rx="3" fill="var(--text-soft)" stroke="var(--border-strong)" strokeWidth="0.8" />
         <rect x={stackEnd + 20} y="142" width="9" height="16" rx="2" fill="var(--text-dim)" />
 
-        {/* ——— labels + leader lines ——— */}
+        {/* ——— labels + leader lines ———
+            Layout contract: labels live only ABOVE (y≤64) or BELOW (y≥238) the
+            machine body (y 76–224); every leader is vertical with its own x
+            lane (136 / 252 / 78 / 179 / 276) so nothing overlaps or crosses. */}
         <g fontSize="9" fill="var(--text-dim)">
-          {/* blade */}
-          <text x="128" y="36">{d.blade}</text>
-          <line x1="140" y1="42" x2="140" y2="74" stroke="var(--accent)" strokeWidth="0.8" />
-          <circle cx="140" cy="76" r="1.6" fill="var(--accent)" />
-          {/* locking bolt */}
-          <text x={stackEnd + 12} y="112" textAnchor="middle">{d.bolt}</text>
-          <line x1={stackEnd + 12} y1="118" x2={stackEnd + 12} y2="132" stroke="var(--accent)" strokeWidth="0.8" />
+          {/* blade — points at the first disc (x 134–138) */}
+          <text x="136" y="32" textAnchor="middle">{d.blade}</text>
+          <line x1="136" y1="38" x2="136" y2="72" stroke="var(--accent)" strokeWidth="0.8" />
+          <circle cx="136" cy="74" r="1.6" fill="var(--accent)" />
+          {/* locking bolt — above the machine, clear of the blade stack */}
+          <text x={stackEnd + 12} y="58" textAnchor="middle">{d.bolt}</text>
+          <line x1={stackEnd + 12} y1="64" x2={stackEnd + 12} y2="132" stroke="var(--accent)" strokeWidth="0.8" />
           <circle cx={stackEnd + 12} cy="134" r="1.6" fill="var(--accent)" />
-          {/* spacers */}
-          <text x="150" y="266">{d.spacer}</text>
-          <line x1="181" y1="256" x2="181" y2="168" stroke="var(--accent)" strokeWidth="0.8" />
-          <circle cx="181" cy="166" r="1.6" fill="var(--accent)" />
-          {/* coupling */}
-          <text x="60" y="238" textAnchor="middle">{d.coupling}</text>
-          <line x1="78" y1="228" x2="78" y2="176" stroke="var(--accent)" strokeWidth="0.8" />
-          <circle cx="78" cy="174" r="1.6" fill="var(--accent)" />
-          {/* cantilever shaft */}
-          <text x="262" y="238" textAnchor="middle">{d.shaft}</text>
-          <line x1="262" y1="228" x2="262" y2="160" stroke="var(--accent)" strokeWidth="0.8" />
-          <circle cx="262" cy="158" r="1.6" fill="var(--accent)" />
+          {/* spacers — points at the wide 32 mm spacer (x 172–186) */}
+          <text x="179" y="272" textAnchor="middle">{d.spacer}</text>
+          <line x1="179" y1="262" x2="179" y2="168" stroke="var(--accent)" strokeWidth="0.8" />
+          <circle cx="179" cy="166" r="1.6" fill="var(--accent)" />
+          {/* coupling — leader drops straight from the flange pair */}
+          <text x="78" y="244" textAnchor="middle">{d.coupling}</text>
+          <line x1="78" y1="234" x2="78" y2="172" stroke="var(--accent)" strokeWidth="0.8" />
+          <circle cx="78" cy="170" r="1.6" fill="var(--accent)" />
+          {/* cantilever shaft — points at the visible stub past the nut */}
+          <text x="306" y="244" textAnchor="end">{d.shaft}</text>
+          <line x1="276" y1="234" x2="276" y2="161" stroke="var(--accent)" strokeWidth="0.8" />
+          <circle cx="276" cy="158" r="1.6" fill="var(--accent)" />
         </g>
 
         {/* ——— FRONT VIEW inset ——— */}

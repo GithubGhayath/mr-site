@@ -1,8 +1,8 @@
-# Multi Ripping Machine (MRM) — Engineering Showcase
+# Smart Multi Ripping Machine (SMRM) — Engineering Showcase
 
-A bilingual (Arabic-default / English) engineering showcase for the **Multi Ripping Machine (MRM)** —
-a reverse-engineered double-arbor multi-rip wood cutting machine enhanced with live monitoring,
-production analytics, and predictive maintenance.
+A bilingual (Arabic-default / English) engineering showcase for the **Smart Multi Ripping
+Machine (SMRM)** — a reverse-engineered double-arbor multi-rip wood cutting machine enhanced
+with live monitoring, production analytics, and predictive maintenance.
 
 An engineering project · **Department of Mechanical Design Engineering · Damascus University**.
 

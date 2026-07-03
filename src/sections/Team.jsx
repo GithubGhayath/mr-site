@@ -50,7 +50,13 @@ export default function Team() {
 
               <div className="team-field">
                 <span className="team-field-label"><ClipboardList size={14} />{t('team.responsibilities')}</span>
-                <p>{m.resp}</p>
+                {Array.isArray(m.resp) ? (
+                  <ul className="team-resp">
+                    {m.resp.map((r) => <li key={r}>{r}</li>)}
+                  </ul>
+                ) : (
+                  <p>{m.resp}</p>
+                )}
               </div>
               <div className="team-field">
                 <span className="team-field-label"><BookOpen size={14} />{t('team.bio')}</span>

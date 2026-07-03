@@ -1,4 +1,4 @@
-// Bilingual content for the Multi Ripping Machine (MRM) showcase.
+// Bilingual content for the Smart Multi Ripping Machine (SMRM) showcase.
 // Arabic (ar) is the default language; English (en) is the secondary.
 // Access with the t('section.key') helper from LanguageContext.
 
@@ -26,11 +26,11 @@ export const translations = {
 
     hero: {
       badge: 'Engineering Project · Damascus University',
-      title1: 'Multi Ripping',
+      title1: 'Smart Multi Ripping',
       title2: 'Machine',
-      abbr: 'MRM',
+      abbr: 'SMRM',
       subtitle:
-        'A reverse-engineered double-arbor multi-rip saw that turns raw logs into finished planks — rebuilt from first principles and upgraded with live monitoring, engineering analytics, and predictive maintenance.',
+        'A smart, reverse-engineered double-arbor multi-rip saw that turns raw logs into finished planks — rebuilt from first principles and upgraded with live monitoring, engineering analytics, and predictive maintenance.',
       ctaExplore: 'Explore the machine',
       ctaSoftware: 'See the software',
       scroll: 'Scroll to explore',
@@ -45,7 +45,7 @@ export const translations = {
       heading: 'Reverse engineering, then going further',
       lead: 'A double-arbor wood multi-rip cutting machine, rebuilt and reimagined as a smart machine.',
       p1: 'This project began as a full reverse-engineering study of an industrial double-arbor multi-rip saw: measuring, modelling, and re-deriving the mechanics that let a single machine split a log into many planks at once. From that baseline we redesigned the critical components and added a layer of intelligence the original industrial design never had.',
-      p2: 'The result is more than a mechanical rebuild. The MRM couples a rigorous engineering thesis — cutting theory, load calculations, and component selection — with a desktop control application, a live monitoring system, production analytics, and an automated predictive-maintenance loop that can stop the machine before a failure happens.',
+      p2: 'The result is more than a mechanical rebuild. The SMRM — the Smart Multi Ripping Machine, where the S stands for the intelligence built into it — couples a rigorous engineering thesis with a desktop control application, a live monitoring system, production analytics, and an automated predictive-maintenance loop that can stop the machine before a failure happens.',
       pillars: [
         { title: 'Mechanical redesign', desc: 'Shafts, blades, spacers and feed system re-derived from cutting-force theory.' },
         { title: 'Control software', desc: 'A desktop application that computes every cutting parameter in real time.' },
@@ -58,7 +58,7 @@ export const translations = {
     machine: {
       label: 'Machine Overview',
       heading: 'One log in, many planks out',
-      p1: 'The Multi Ripping Machine converts raw wooden logs into multiple dimensioned planks in a single pass. Two parallel cutting shafts — the double-arbor configuration — each carry a stack of circular saw blades, so the log is ripped along many parallel planes simultaneously as it is fed through.',
+      p1: 'The Smart Multi Ripping Machine (SMRM) converts raw wooden logs into multiple dimensioned planks in a single pass. Two parallel cutting shafts — the double-arbor configuration — each carry a stack of circular saw blades, so the log is ripped along many parallel planes simultaneously as it is fed through.',
       p2: 'Precision spacers set the exact distance between blades, which defines plank width. A cantilever shaft holds the blade stack, and a locking bolt clamps it tight enough to transmit the full cutting torque through friction alone, with no slipping under load.',
       specs: [
         { k: 'Cutting shafts', v: '2 (double arbor)' },
@@ -67,7 +67,7 @@ export const translations = {
         { k: 'Planks per pass', v: 'up to 10' },
         { k: 'Plank dimensions', v: '200 × 30 mm' },
         { k: 'Max log diameter', v: '540 mm' },
-        { k: 'Min log length', v: '500 mm (470 mm theoretical)' },
+        { k: 'Min log length', v: '650 mm (610 mm theoretical)' },
         { k: 'Feed speed', v: '11 m/min' },
       ],
       diagram: {
@@ -173,7 +173,7 @@ export const translations = {
       ],
       videoTitle: 'Watch the application in action',
       videoCaption:
-        'A full walkthrough of the MRM controller — wood selection, force calculation, live monitoring, history analytics and PDF export. Playback is slightly accelerated for presentation.',
+        'A full walkthrough of the SMRM controller — wood selection, force calculation, live monitoring, history analytics and PDF export. Playback is slightly accelerated for presentation.',
       screens: [
         {
           title: 'Home — the calculation engine',
@@ -277,7 +277,7 @@ export const translations = {
     maintenance: {
       label: 'Maintenance Intelligence',
       heading: 'A machine that protects itself',
-      lead: 'The MRM follows intelligent-machine principles: it tracks the life of its own consumable parts and acts before they fail.',
+      lead: 'The SMRM earns the "Smart" in its name here: it tracks the life of its own consumable parts and acts before they fail.',
       p1: 'The software continuously tracks the remaining lifetime of lifetime-limited components — bearings, belts, couplings and other consumable mechanical parts — comparing expected life against actual running time.',
       p2: 'When a component reaches the end of its expected life, two things happen at the same instant. The software emails the maintenance department a full replacement report, and it sends a command that stops the machine until maintenance is complete.',
       emailTitle: 'The automatic report includes',
@@ -298,10 +298,10 @@ export const translations = {
     line: {
       label: 'Production Line',
       heading: 'One machine in a bigger line',
-      p1: 'The MRM does not work alone. It is one station inside a complete industrial sawmilling line, surrounded by machines that prepare the logs before cutting and handle the boards afterwards.',
-      p2: 'The layout below shows that line end-to-end. Logs are staged on a heavy-duty loading deck, broken down into open-faced cants by a twin vertical saw, centred on a belt conveyor, ripped into boards by the MRM — the multi-rip station at the heart of the line — and finally carried away on a sweep-chain conveyor for sorting and stacking.',
+      p1: 'The SMRM does not work alone. It is one station inside a complete industrial sawmilling line, surrounded by machines that prepare the logs before cutting and handle the boards afterwards.',
+      p2: 'The layout below shows that line end-to-end. Logs are staged on a heavy-duty loading deck, broken down into open-faced cants by a twin vertical saw, centred on a belt conveyor, ripped into boards by the SMRM — the multi-rip station at the heart of the line — and finally carried away on a sweep-chain conveyor for sorting and stacking.',
       caption:
-        'Complete line layout: log loading deck → twin vertical saw → centring belt conveyor → MRM multi-rip station → sweep-chain out-feed.',
+        'Complete line layout: log loading deck → twin vertical saw → centring belt conveyor → SMRM multi-rip station → sweep-chain out-feed.',
       placeholder: 'Production-line layout — coming soon.',
     },
 
@@ -374,22 +374,52 @@ export const translations = {
       bio: 'Biography',
       tbd: 'To be completed.',
       members: [
-        { name: 'Eng. Ghayath Ahmad Al Ali Al Razaj', role: 'To be completed', resp: 'To be completed.', bio: 'To be completed.' },
-        { name: 'Eng. Manar Muwaffaq Abdul Hadi', role: 'To be completed', resp: 'To be completed.', bio: 'To be completed.' },
-        { name: 'Eng. Zukaa Abu Al-Khair', role: 'To be completed', resp: 'To be completed.', bio: 'To be completed.' },
+        {
+          name: 'Eng. Ghayath Ahmad Al Ali Al Razaj',
+          role: 'Architect',
+          resp: [
+            'Developed the desktop application.',
+            'Developed the project showcase website.',
+            'Performed the complete analytical study and system design.',
+            'Led all work related to the cutting subsystem.',
+            'Managed the overall project.',
+          ],
+          bio: 'To be completed.',
+        },
+        {
+          name: 'Eng. Manar Muwaffaq Abdul Hadi',
+          role: 'Designer',
+          resp: [
+            'Performed the analytical study and system design for the feeding and transport systems.',
+            'Designed the SolidWorks models.',
+            'Created the assembly drawings.',
+            'Produced the manufacturing drawings for all machine components.',
+          ],
+          bio: 'To be completed.',
+        },
+        {
+          name: 'Eng. Zukaa Abu Al-Khair',
+          role: 'Analyst',
+          resp: [
+            'Performed the analytical study and system design for the fixing mechanisms and working-part connections.',
+            'Verified and reviewed engineering calculations.',
+            'Authored the engineering thesis.',
+          ],
+          bio: 'To be completed.',
+        },
       ],
     },
 
     contact: {
       label: 'Contact',
       heading: 'Want to know more?',
-      lead: 'This project lies at the intersection of Mechanical Design Engineering and Software Engineering. Reach out to learn more about the Multi Ripping Machine or the software behind it.',
+      lead: 'This project lies at the intersection of Mechanical Design Engineering and Software Engineering. Reach out to learn more about the Smart Multi Ripping Machine (SMRM) or the software behind it.',
       github: 'View on GitHub',
       email: 'Email us',
     },
 
     footer: {
-      tagline: 'Multi Ripping Machine — a smart double-arbor multi-rip saw.',
+      tagline: 'Smart Multi Ripping Machine (SMRM) — an intelligent double-arbor multi-rip saw.',
       project: 'Engineering project · Department of Mechanical Design Engineering · Damascus University',
       rights: 'All rights reserved.',
       built: 'Engineered with precision.',
@@ -430,11 +460,11 @@ export const translations = {
 
     hero: {
       badge: 'مشروع هندسي · جامعة دمشق',
-      title1: 'آلة التشريح',
-      title2: 'المتعدّدة',
-      abbr: 'MRM',
+      title1: 'آلة التشريح المتعدّدة',
+      title2: 'الذكية',
+      abbr: 'SMRM',
       subtitle:
-        'آلة تشريح متعدّدة بمحورَي قطع، أُعيدت هندستها عكسياً لتحويل جذوع الخشب الخام إلى ألواح جاهزة — أُعيد بناؤها من المبادئ الأولى وطُوّرت بمراقبة حيّة وتحليلات هندسية وصيانة تنبّؤية.',
+        'آلة تشريح متعدّدة ذكية بمحورَي قطع، أُعيدت هندستها عكسياً لتحويل جذوع الخشب الخام إلى ألواح جاهزة — أُعيد بناؤها من المبادئ الأولى وطُوّرت بمراقبة حيّة وتحليلات هندسية وصيانة تنبّؤية.',
       ctaExplore: 'استكشف الآلة',
       ctaSoftware: 'شاهد البرنامج',
       scroll: 'مرّر للاستكشاف',
@@ -449,7 +479,7 @@ export const translations = {
       heading: 'هندسة عكسية… ثم خطوة أبعد',
       lead: 'آلة تشريح خشب متعدّدة بمحورَي قطع، أُعيد بناؤها وتصوّرها كآلة ذكية.',
       p1: 'بدأ المشروع كدراسة هندسة عكسية كاملة لآلة تشريح خشب صناعية بمحورَي قطع: قياسٌ ونمذجةٌ وإعادة اشتقاق للميكانيك الذي يتيح لآلة واحدة أن تقسم الجذع إلى عدّة ألواح دفعةً واحدة. انطلاقاً من هذا الأساس أعدنا تصميم المكوّنات الحرجة وأضفنا طبقة من الذكاء لم يمتلكها التصميم الصناعي الأصلي.',
-      p2: 'النتيجة أكثر من مجرّد إعادة بناء ميكانيكية. تجمع الآلة بين أطروحة هندسية دقيقة — نظرية القطع وحسابات الأحمال واختيار المكوّنات — وبين برنامج تحكّم مكتبي، ونظام مراقبة حيّ، وتحليلات إنتاج، وحلقة صيانة تنبّؤية آلية قادرة على إيقاف الآلة قبل وقوع العطل.',
+      p2: 'النتيجة أكثر من مجرّد إعادة بناء ميكانيكية. تجمع SMRM — آلة التشريح المتعدّدة الذكية، وحرف S فيها اختصار للذكاء المدمج في الآلة — بين أطروحة هندسية دقيقة وبرنامج تحكّم مكتبي، ونظام مراقبة حيّ، وتحليلات إنتاج، وحلقة صيانة تنبّؤية آلية قادرة على إيقاف الآلة قبل وقوع العطل.',
       pillars: [
         { title: 'إعادة تصميم ميكانيكية', desc: 'محاور وشفرات وفواصل ونظام تغذية أُعيد اشتقاقها من نظرية قوى القطع.' },
         { title: 'برنامج تحكّم', desc: 'برنامج مكتبي يحسب كل معامل قطع في الزمن الحقيقي.' },
@@ -462,7 +492,7 @@ export const translations = {
     machine: {
       label: 'نظرة على الآلة',
       heading: 'جذعٌ يدخل… وألواحٌ تخرج',
-      p1: 'تحوّل آلة التشريح المتعدّدة جذوع الخشب الخام إلى عدّة ألواح مقاسة في مرور واحد. يحمل كلٌّ من محورَي القطع المتوازيين — تكوين المحورين المزدوجين — رزمة من الشفرات الدائرية، فيُشرَّح الجذع على عدّة مستويات متوازية في آنٍ واحد أثناء تغذيته.',
+      p1: 'تحوّل آلة التشريح المتعدّدة الذكية (SMRM) جذوع الخشب الخام إلى عدّة ألواح مقاسة في مرور واحد. يحمل كلٌّ من محورَي القطع المتوازيين — تكوين المحورين المزدوجين — رزمة من الشفرات الدائرية، فيُشرَّح الجذع على عدّة مستويات متوازية في آنٍ واحد أثناء تغذيته.',
       p2: 'تضبط الفواصل الدقيقة المسافة بين الشفرات، وهي التي تحدّد عرض اللوح. يحمل محورٌ كابولي رزمة الشفرات، ويشدّها برغي تثبيت بقوّة تكفي لنقل عزم القطع الكامل بالاحتكاك وحده دون أي انزلاق تحت الحمل.',
       specs: [
         { k: 'محاور القطع', v: '٢ (محور مزدوج)' },
@@ -471,7 +501,7 @@ export const translations = {
         { k: 'ألواح في المرور', v: 'حتى ١٠' },
         { k: 'أبعاد اللوح', v: '٢٠٠ × ٣٠ مم' },
         { k: 'أقصى قطر جذع', v: '٥٤٠ مم' },
-        { k: 'أدنى طول جذع', v: '٥٠٠ مم (٤٧٠ نظرياً)' },
+        { k: 'أدنى طول جذع', v: '٦٥٠ مم (٦١٠ نظرياً)' },
         { k: 'سرعة التغذية', v: '١١ م/د' },
       ],
       diagram: {
@@ -577,7 +607,7 @@ export const translations = {
       ],
       videoTitle: 'شاهد البرنامج أثناء العمل',
       videoCaption:
-        'جولة كاملة في برنامج التحكّم بالآلة — اختيار الخشب، وحساب القوى، والمراقبة الحيّة، وتحليلات السجلّ، وتصدير PDF. سُرِّع العرض قليلاً لسلاسة التقديم.',
+        'جولة كاملة في برنامج التحكّم بآلة SMRM — اختيار الخشب، وحساب القوى، والمراقبة الحيّة، وتحليلات السجلّ، وتصدير PDF. سُرِّع العرض قليلاً لسلاسة التقديم.',
       screens: [
         {
           title: 'الرئيسية — محرّك الحساب',
@@ -703,9 +733,9 @@ export const translations = {
       label: 'خط الإنتاج',
       heading: 'آلةٌ ضمن خطٍّ أكبر',
       p1: 'لا تعمل الآلة بمعزل. هي محطّة واحدة ضمن خط نشرٍ صناعي متكامل، تحيط بها آلات تهيّئ الجذوع قبل القطع وتعالج الألواح بعده.',
-      p2: 'يعرض المخطّط أدناه الخطّ من أوّله إلى آخره: تُهيَّأ الجذوع على منصّة تحميل ثقيلة، ثم يحوّلها منشار عمودي مزدوج إلى كتلٍ مستوية الوجه، تُوسَّط على ناقل سيري، فتشرّحها الآلة MRM — محطّة التشريح المتعدّد في قلب الخط — إلى ألواح، وأخيراً يحملها ناقل سلسلي نحو الفرز والتكديس.',
+      p2: 'يعرض المخطّط أدناه الخطّ من أوّله إلى آخره: تُهيَّأ الجذوع على منصّة تحميل ثقيلة، ثم يحوّلها منشار عمودي مزدوج إلى كتلٍ مستوية الوجه، تُوسَّط على ناقل سيري، فتشرّحها الآلة SMRM — محطّة التشريح المتعدّد في قلب الخط — إلى ألواح، وأخيراً يحملها ناقل سلسلي نحو الفرز والتكديس.',
       caption:
-        'مخطّط الخط الكامل: منصّة تحميل الجذوع ← منشار عمودي مزدوج ← ناقل توسيط سيري ← محطّة التشريح المتعدّد MRM ← ناقل الإخراج السلسلي.',
+        'مخطّط الخط الكامل: منصّة تحميل الجذوع ← منشار عمودي مزدوج ← ناقل توسيط سيري ← محطّة التشريح المتعدّد SMRM ← ناقل الإخراج السلسلي.',
       placeholder: 'مخطّط خط الإنتاج — قريباً.',
     },
 
@@ -778,22 +808,52 @@ export const translations = {
       bio: 'نبذة',
       tbd: 'يُستكمل لاحقاً.',
       members: [
-        { name: 'م. غياث أحمد العلي الرزج', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
-        { name: 'م. منار موفّق عبد الهادي', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
-        { name: 'م. ذُكاء أبو الخير', role: 'يُستكمل لاحقاً', resp: 'يُستكمل لاحقاً.', bio: 'يُستكمل لاحقاً.' },
+        {
+          name: 'م. غياث أحمد العلي الرزج',
+          role: 'المعماري',
+          resp: [
+            'تطوير البرنامج المكتبي.',
+            'تطوير موقع عرض المشروع.',
+            'إنجاز الدراسة التحليلية الكاملة وتصميم المنظومة.',
+            'قيادة جميع الأعمال المتعلقة بمنظومة القطع.',
+            'إدارة المشروع بأكمله.',
+          ],
+          bio: 'يُستكمل لاحقاً.',
+        },
+        {
+          name: 'م. منار موفّق عبد الهادي',
+          role: 'المصمِّمة',
+          resp: [
+            'الدراسة التحليلية وتصميم المنظومة لأنظمة التغذية والنقل.',
+            'تصميم نماذج SolidWorks.',
+            'إعداد مخطّطات التجميع.',
+            'إنتاج مخطّطات التصنيع لجميع مكوّنات الآلة.',
+          ],
+          bio: 'يُستكمل لاحقاً.',
+        },
+        {
+          name: 'م. ذُكاء أبو الخير',
+          role: 'المحلِّلة',
+          resp: [
+            'الدراسة التحليلية وتصميم المنظومة لآليات التثبيت ووصلات أجزاء العمل.',
+            'تدقيق الحسابات الهندسية ومراجعتها.',
+            'تأليف الأطروحة الهندسية.',
+          ],
+          bio: 'يُستكمل لاحقاً.',
+        },
       ],
     },
 
     contact: {
       label: 'تواصل',
       heading: 'تريد معرفة المزيد؟',
-      lead: 'يقع هذا المشروع عند تقاطع هندسة التصميم الميكانيكي وهندسة البرمجيات. تواصل معنا لمعرفة المزيد عن آلة التشريح المتعدّدة أو البرنامج الذي يقف خلفها.',
+      lead: 'يقع هذا المشروع عند تقاطع هندسة التصميم الميكانيكي وهندسة البرمجيات. تواصل معنا لمعرفة المزيد عن آلة التشريح المتعدّدة الذكية (SMRM) أو البرنامج الذي يقف خلفها.',
       github: 'عرض على GitHub',
       email: 'راسلنا',
     },
 
     footer: {
-      tagline: 'آلة التشريح المتعدّدة — آلة تشريح ذكية بمحورَي قطع.',
+      tagline: 'آلة التشريح المتعدّدة الذكية (SMRM) — منشار تشريح مزدوج المحور بقدرات ذكية.',
       project: 'مشروع هندسي · قسم هندسة التصميم الميكانيكي · جامعة دمشق',
       rights: 'جميع الحقوق محفوظة.',
       built: 'صُنِعت بدقّة هندسية.',

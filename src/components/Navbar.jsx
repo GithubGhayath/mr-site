@@ -59,9 +59,19 @@ export default function Navbar() {
     };
   }, []);
 
-  const go = useCallback((id) => {
+  const go = useCallback((id, fromSheet = false) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const scroll = () => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 71;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    };
+    // Mobile browsers cancel an in-flight smooth scroll when the DOM mutates;
+    // the closing sheet's exit animation is exactly such a mutation, so wait
+    // for it to finish before scrolling.
+    if (fromSheet) setTimeout(scroll, 340);
+    else scroll();
   }, []);
 
   return (
@@ -72,7 +82,7 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="nav-inner">
-        <button className="nav-logo" onClick={() => go('hero')} aria-label="MRM home">
+        <button className="nav-logo" onClick={() => go('hero')} aria-label="SMRM home">
           <span className="nav-logo-mark" aria-hidden="true">
             <svg viewBox="0 0 40 40" width="34" height="34">
               <g transform="translate(20 20)">
@@ -87,8 +97,8 @@ export default function Navbar() {
             </svg>
           </span>
           <span className="nav-logo-text">
-            <strong>MRM</strong>
-            <em>{lang === 'ar' ? 'آلة التشريح المتعدّدة' : 'Multi Ripping Machine'}</em>
+            <strong>SMRM</strong>
+            <em>{lang === 'ar' ? 'آلة التشريح المتعدّدة الذكية' : 'Smart Multi Ripping Machine'}</em>
           </span>
         </button>
 
@@ -143,7 +153,7 @@ export default function Navbar() {
                 <motion.button
                   key={id}
                   className={`nav-sheet-link ${active === id ? 'active' : ''}`}
-                  onClick={() => go(id)}
+                  onClick={() => go(id, true)}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.03 * i }}
