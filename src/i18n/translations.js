@@ -376,7 +376,7 @@ export const translations = {
       members: [
         {
           name: 'Eng. Ghayath Ahmad Al Ali Al Razaj',
-          role: 'Systems Architect',
+          role: 'Architect',
           resp: [
             'Developed the desktop application.',
             'Developed the project showcase website.',
@@ -384,18 +384,18 @@ export const translations = {
             'Led all work related to the cutting subsystem.',
             'Managed the overall project.',
           ],
-          bio: 'A leader who blends rigorous engineering thinking with software craftsmanship, carrying the project from first concept to a fully working system.',
+          bio: 'A systems-minded leader who fuses engineering depth with software craftsmanship, driving the project from first idea to a fully operating machine.',
         },
         {
           name: 'Eng. Manar Muwaffaq Abdul Hadi',
           role: 'Designer',
           resp: [
-            'Performed the analytical study and system design for the feeding and transport systems.',
-            'Designed the SolidWorks models.',
-            'Created the assembly drawings.',
-            'Produced the manufacturing drawings for all machine components.',
+            'Performed the analytical study and design concept for the feeding and transport systems.',
+            'Designed the 3D engineering model using SolidWorks.',
+            'Prepared the assembly and working drawings in line with manufacturing requirements.',
+            'Ensured the design is manufacturable and easy to assemble for an efficient system.',
           ],
-          bio: 'With refined engineering precision, she translates design concepts into polished, manufacture-ready models and drawings.',
+          bio: 'A creative engineer who turns vision into precise designs that unite elegance with efficiency.',
         },
         {
           name: 'Eng. Zukaa Abu Al-Khair',
@@ -406,7 +406,7 @@ export const translations = {
             'Prepared the engineering thesis and documented the technical aspects of the project.',
             'Contributed to verifying that the mechanical solutions meet the operating requirements.',
           ],
-          bio: 'With composed rigour and analytical insight, she verifies every calculation and documents the project\'s engineering in a complete thesis.',
+          bio: 'Composed and analytically precise, she turns every engineering detail into a step toward a more reliable solution.',
         },
       ],
     },
@@ -811,7 +811,7 @@ export const translations = {
       members: [
         {
           name: 'م. غياث أحمد العلي الرزج',
-          role: 'معماري المنظومة',
+          role: 'المعماري',
           resp: [
             'تطوير البرنامج المكتبي الخاص بالمشروع.',
             'تطوير الموقع التعريفي بالمشروع.',
@@ -819,18 +819,18 @@ export const translations = {
             'الإشراف على جميع أعمال منظومة القطع وقيادتها.',
             'الإدارة الشاملة للمشروع.',
           ],
-          bio: 'قائدٌ يمزج رصانة الفكر الهندسي بحرفيّة البرمجة، قاد المشروع من التصوّر الأول إلى منظومة متكاملة قيد التشغيل.',
+          bio: 'قائدٌ بعقليةِ منظومات، يمزج العمق الهندسي بحرفيّة البرمجة، وقاد المشروع من الفكرة الأولى إلى منظومة متكاملة قيد التشغيل.',
         },
         {
           name: 'م. منار موفّق عبد الهادي',
           role: 'المصمِّمة',
           resp: [
-            'إجراء الدراسة التحليلية ووضع التصوّر التصميمي لمنظومتَي التغذية والنقل.',
-            'إنشاء النماذج التصميمية للآلة على برنامج SolidWorks.',
-            'إعداد مخطّطات التجميع.',
-            'إعداد مخطّطات التصنيع لجميع مكوّنات الآلة.',
+            'إجراء الدراسة التحليلية ووضع التصور التصميمي لمنظومتي التغذية والنقل.',
+            'تصميم النموذج الهندسي ثلاثي الأبعاد باستخدام SolidWorks.',
+            'إعداد المخططات التجميعية والتنفيذية وفق المتطلبات التصنيعية.',
+            'ضمان قابلية التصميم للتصنيع والتجميع بما يحقق كفاءة المنظومة.',
           ],
-          bio: 'بدقّةٍ هندسيةٍ رفيعة، تترجم المفاهيم التصميمية إلى نماذج ومخطّطات متقنة جاهزة للتصنيع.',
+          bio: 'مبدعةٌ تحوّل الرؤية الهندسية إلى تصاميم دقيقة تجمع بين الجمال والكفاءة.',
         },
         {
           name: 'م. ذُكاء أبو الخير',
@@ -841,7 +841,7 @@ export const translations = {
             'إعداد الأطروحة الهندسية وتوثيق الجوانب الفنية للمشروع.',
             'المساهمة في التحقق من توافق الحلول الميكانيكية مع متطلبات التشغيل.',
           ],
-          bio: 'بمنهجيةٍ رصينة وبصيرةٍ تحليلية، تتحقّق من سلامة كل حساب وتوثّق هندسة المشروع بأطروحة متكاملة.',
+          bio: 'رصينةُ التحليل، تجعل من كل تفصيلٍ هندسي خطوةً نحو حلٍّ أكثر موثوقية.',
         },
       ],
     },
