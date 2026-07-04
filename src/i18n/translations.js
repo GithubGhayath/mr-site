@@ -378,12 +378,12 @@ export const translations = {
           name: 'Eng. Ghayath Ahmad Al Ali Al Razaj',
           role: 'Architect',
           resp: [
+            'Supervised the development of the cutting subsystem and the feeding mechanism within the integrated engineering design, ensuring full system integration.',
             'Developed the desktop application and the project showcase website.',
-            'Performed the analytical study and shaped the overall engineering concept of the system.',
-            'Supervised the development of the cutting subsystem within the project scope.',
-            'Coordinated the team\'s work and managed the project phases.',
+            'Performed the analytical study and defined the engineering concept of the system.',
+            'Coordinated and distributed the team\'s tasks across the project phases.',
           ],
-          bio: 'He combined engineering vision with software expertise to craft one integrated system.',
+          bio: 'A leader who combines engineering vision with software expertise to craft one integrated system.',
         },
         {
           name: 'Eng. Manar Muwaffaq Abdul Hadi',
@@ -812,12 +812,12 @@ export const translations = {
           name: 'م. غياث أحمد العلي الرزج',
           role: 'المعماري',
           resp: [
+            'الإشراف على تطوير منظومة القطع وآلية التغذية ضمن التصميم الهندسي المتكامل للمنظومة بما يحقق تكامل النظام.',
             'تطوير التطبيق المكتبي وموقع عرض المشروع.',
-            'إجراء الدراسة التحليلية ووضع التصور الهندسي الشامل للمنظومة.',
-            'الإشراف على تطوير منظومة القطع ضمن نطاق المشروع.',
-            'تنسيق أعمال الفريق وإدارة مراحل المشروع.',
+            'إجراء الدراسة التحليلية وتحديد التصور الهندسي للمنظومة.',
+            'تنسيق وتوزيع مهام الفريق خلال مراحل المشروع.',
           ],
-          bio: 'جمع بين الرؤية الهندسية والخبرة البرمجية لصياغة منظومة متكاملة.',
+          bio: 'قائدٌ يجمع بين الرؤية الهندسية والخبرة البرمجية لصياغة منظومة متكاملة.',
         },
         {
           name: 'م. منار موفّق عبد الهادي',
