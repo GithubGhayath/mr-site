@@ -376,7 +376,7 @@ export const translations = {
       members: [
         {
           name: 'Eng. Ghayath Ahmad Al Ali Al Razaj',
-          role: 'Architect',
+          role: 'Systems Architect',
           resp: [
             'Developed the desktop application.',
             'Developed the project showcase website.',
@@ -384,7 +384,7 @@ export const translations = {
             'Led all work related to the cutting subsystem.',
             'Managed the overall project.',
           ],
-          bio: 'A leader who pairs engineering depth with software craftsmanship, steering the project from first idea to operation.',
+          bio: 'A leader who blends rigorous engineering thinking with software craftsmanship, carrying the project from first concept to a fully working system.',
         },
         {
           name: 'Eng. Manar Muwaffaq Abdul Hadi',
@@ -395,17 +395,18 @@ export const translations = {
             'Created the assembly drawings.',
             'Produced the manufacturing drawings for all machine components.',
           ],
-          bio: 'Precise to the smallest detail, she turns engineering concepts into manufacture-ready models and drawings.',
+          bio: 'With refined engineering precision, she translates design concepts into polished, manufacture-ready models and drawings.',
         },
         {
           name: 'Eng. Zukaa Abu Al-Khair',
           role: 'Analyst',
           resp: [
-            'Performed the analytical study and system design for the fixing mechanisms and working-part connections.',
-            'Verified and reviewed engineering calculations.',
-            'Authored the engineering thesis.',
+            'Performed the analytical study and design concept for the fixing mechanisms and the connection of the working parts.',
+            'Reviewed and verified the engineering calculations to ensure design accuracy.',
+            'Prepared the engineering thesis and documented the technical aspects of the project.',
+            'Contributed to verifying that the mechanical solutions meet the operating requirements.',
           ],
-          bio: 'Rigorously methodical, she validates every calculation and documents the project in a complete engineering thesis.',
+          bio: 'With composed rigour and analytical insight, she verifies every calculation and documents the project\'s engineering in a complete thesis.',
         },
       ],
     },
@@ -810,7 +811,7 @@ export const translations = {
       members: [
         {
           name: 'م. غياث أحمد العلي الرزج',
-          role: 'المعماري',
+          role: 'معماري المنظومة',
           resp: [
             'تطوير البرنامج المكتبي الخاص بالمشروع.',
             'تطوير الموقع التعريفي بالمشروع.',
@@ -818,28 +819,29 @@ export const translations = {
             'الإشراف على جميع أعمال منظومة القطع وقيادتها.',
             'الإدارة الشاملة للمشروع.',
           ],
-          bio: 'قياديٌّ يجمع بين العمق الهندسي والإتقان البرمجي، قاد المشروع من الفكرة الأولى إلى التشغيل.',
+          bio: 'قائدٌ يمزج رصانة الفكر الهندسي بحرفيّة البرمجة، قاد المشروع من التصوّر الأول إلى منظومة متكاملة قيد التشغيل.',
         },
         {
           name: 'م. منار موفّق عبد الهادي',
           role: 'المصمِّمة',
           resp: [
             'إجراء الدراسة التحليلية ووضع التصوّر التصميمي لمنظومتَي التغذية والنقل.',
-            'بناء النماذج التصميمية على برنامج SolidWorks.',
+            'إنشاء النماذج التصميمية للآلة على برنامج SolidWorks.',
             'إعداد مخطّطات التجميع.',
             'إعداد مخطّطات التصنيع لجميع مكوّنات الآلة.',
           ],
-          bio: 'دقيقةٌ في التفاصيل، تحوّل المفاهيم الهندسية إلى نماذج ومخطّطات جاهزة للتصنيع.',
+          bio: 'بدقّةٍ هندسيةٍ رفيعة، تترجم المفاهيم التصميمية إلى نماذج ومخطّطات متقنة جاهزة للتصنيع.',
         },
         {
           name: 'م. ذُكاء أبو الخير',
           role: 'المحلِّلة',
           resp: [
-            'إجراء الدراسة التحليلية ووضع التصوّر التصميمي لآليات التثبيت ووصلات الأجزاء العاملة.',
-            'تدقيق الحسابات الهندسية ومراجعتها.',
-            'كتابة الأطروحة الهندسية.',
+            'إجراء الدراسة التحليلية ووضع التصور التصميمي لآليات التثبيت وربط الأجزاء العاملة.',
+            'مراجعة وتدقيق الحسابات الهندسية لضمان دقة التصميم.',
+            'إعداد الأطروحة الهندسية وتوثيق الجوانب الفنية للمشروع.',
+            'المساهمة في التحقق من توافق الحلول الميكانيكية مع متطلبات التشغيل.',
           ],
-          bio: 'منهجيّةٌ صارمة، تتحقّق من كل حساب وتوثّق هندسة المشروع في أطروحة متكاملة.',
+          bio: 'بمنهجيةٍ رصينة وبصيرةٍ تحليلية، تتحقّق من سلامة كل حساب وتوثّق هندسة المشروع بأطروحة متكاملة.',
         },
       ],
     },
