@@ -532,9 +532,11 @@ export const translations = {
 
     team: {
       label: 'Team',
-      heading: 'The engineers behind the machine',
+      heading: 'Designed together, built to think',
       lead: 'An engineering project from the Department of Mechanical Design Engineering, Damascus University.',
       role: 'Role',
+      linkedin: 'LinkedIn',
+      linkedinAria: 'LinkedIn profile of',
       responsibilities: 'Responsibilities',
       bio: 'Biography',
       tbd: 'To be completed.',
@@ -1130,9 +1132,11 @@ export const translations = {
 
     team: {
       label: 'الفريق',
-      heading: 'المهندسون خلف الآلة',
+      heading: 'صمّمناها معاً، وجعلناها تُفكِّر',
       lead: 'مشروع هندسي من قسم هندسة التصميم الميكانيكي، جامعة دمشق.',
       role: 'الدور',
+      linkedin: 'LinkedIn',
+      linkedinAria: 'الملف الشخصي على LinkedIn لـ',
       responsibilities: 'المسؤوليات',
       bio: 'نبذة',
       tbd: 'يُستكمل لاحقاً.',
