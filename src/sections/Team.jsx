@@ -1,6 +1,14 @@
-import { Briefcase, ClipboardList, BookOpen } from 'lucide-react';
+import { Briefcase, ClipboardList, BookOpen, Linkedin } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal } from '../components/ui';
+
+// LinkedIn profiles, in the same order as team.members in the translations.
+// Kept out of the translation trees so one URL cannot drift from the other.
+const LINKEDIN = [
+  'https://www.linkedin.com/in/ghalali/',                   // Ghayath
+  'https://www.linkedin.com/in/manar-abdulhadi-71b7a541b',  // Manar
+  'https://www.linkedin.com/in/zoukaa-ahmad-335405432/',    // Zukaa
+];
 
 // Single stylized first initial (strip the Eng./م. title and any diacritic).
 function firstInitial(name) {
@@ -47,6 +55,18 @@ export default function Team() {
               </div>
               <h3 className="team-name">{m.name}</h3>
               <span className="team-role"><Briefcase size={14} />{m.role}</span>
+              {LINKEDIN[i] && (
+                <a
+                  className="team-linkedin"
+                  href={LINKEDIN[i]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t('team.linkedinAria')} ${m.name}`}
+                >
+                  <Linkedin size={14} />
+                  {t('team.linkedin')}
+                </a>
+              )}
 
               <div className="team-field">
                 <span className="team-field-label"><ClipboardList size={14} />{t('team.responsibilities')}</span>
