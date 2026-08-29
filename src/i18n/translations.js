@@ -310,6 +310,20 @@ export const translations = {
         { title: 'Notify', desc: 'Email maintenance a full report with location and lifetime data.' },
         { title: 'Protect', desc: 'Stop the machine automatically until the part is replaced.' },
       ],
+      alertTitle: 'The alert the machine actually sent',
+      alertLead:
+        'On 28 August 2026 the 16007 bearing at position #11 on the bottom cutting shaft passed 2,197,000,016 revolutions against a rated life of 2,197,000,000 — the whole of its expected life. The software stopped the machine at 17:28:37 and, in the same moment, emailed the maintenance department the report below. It is not a mock-up but the message as it arrived, written in English and Arabic in one email so the department can read it in either language.',
+      alertContents: [
+        'Failed element: type, position, rated against consumed life, and price',
+        'Machine status at the stop: runtime, production, energy, speed and wood',
+        'Maintenance of that element over the last 30 days, with who did it and what it cost',
+        'Any other element past the 80% warning threshold',
+        'Attachments: a picture of the element and its bearing catalogue',
+      ],
+      alertSubject: 'MAINTENANCE ALERT - Bearing 16007 #11 reached end of life - MR200 stopped',
+      alertStamp: '28 Aug 2026 · 17:28:37',
+      alertPages: 'PDF · 5 pages',
+      openAlert: 'Open the alert',
     },
 
     line: {
@@ -853,6 +867,20 @@ export const translations = {
         { title: 'إبلاغ', desc: 'إرسال تقرير كامل بالبريد يتضمّن الموقع وبيانات العمر.' },
         { title: 'حماية', desc: 'إيقاف الآلة تلقائياً حتى يُستبدَل الجزء.' },
       ],
+      alertTitle: 'التنبيه الذي أرسلته الآلة فعلاً',
+      alertLead:
+        'في ٢٨ آب ٢٠٢٦ تجاوز محمل 16007 في الموضع رقم ١١ على عمود القطع السفلي ٢٬١٩٧٬٠٠٠٬٠١٦ دورة مقابل عمر اسمي قدره ٢٬١٩٧٬٠٠٠٬٠٠٠ دورة، أي عمره المتوقَّع كاملاً. أوقف البرنامج الآلة عند الساعة ١٧:٢٨:٣٧، وأرسل في اللحظة نفسها إلى قسم الصيانة التقرير أدناه. وليس هذا نموذجاً توضيحياً بل الرسالة كما وصلت، مكتوبة بالإنكليزية والعربية في بريد واحد ليقرأها القسم بأيٍّ من اللغتين.',
+      alertContents: [
+        'العنصر المتعطّل: نوعه وموضعه وعمره الاسمي مقابل المستهلَك وسعره',
+        'حالة الآلة لحظة التوقّف: زمن التشغيل والإنتاج والطاقة والسرعة ونوع الخشب',
+        'صيانة هذا العنصر خلال آخر ٣٠ يوماً، ومَن نفّذها وكم كلّفت',
+        'أي عنصر آخر تجاوز عتبة التحذير ٨٠٪',
+        'المرفقات: صورة العنصر وكتالوج المحمل',
+      ],
+      alertSubject: 'تنبيه صيانة - Bearing 16007 رقم 11 بلغ نهاية عمره - توقفت MR200',
+      alertStamp: '٢٨ آب ٢٠٢٦ · ١٧:٢٨:٣٧',
+      alertPages: 'PDF · ٥ صفحات',
+      openAlert: 'فتح التنبيه',
     },
 
     line: {
