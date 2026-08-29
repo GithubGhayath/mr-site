@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { FileText, KeyRound, BookOpen, X } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
@@ -12,6 +12,31 @@ export default function Documents() {
   const pdf = config.THESIS_PDF ? asset(config.THESIS_PDF) : '';
   const [requesting, setRequesting] = useState(false);
   const [reading, setReading] = useState(false);
+  // pdf.js and the thesis are several megabytes; hold them back until the
+  // reader is actually approaching this section.
+  const [inView, setInView] = useState(false);
+  const viewerSlotRef = useRef(null);
+
+  useEffect(() => {
+    if (inView) return undefined;
+    const check = () => {
+      const el = viewerSlotRef.current;
+      if (!el) return;
+      const box = el.getBoundingClientRect();
+      // some embedders report a zero-height window; fall back to a sane guess
+      const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+      if (box.top < vh * 2 && box.bottom > -vh) {
+        setInView(true);
+      }
+    };
+    check();
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    return () => {
+      window.removeEventListener('scroll', check);
+      window.removeEventListener('resize', check);
+    };
+  }, [inView]);
 
   // Escape closes the full-screen reader, and the page behind it stays put.
   useEffect(() => {
@@ -64,7 +89,9 @@ export default function Documents() {
           <div className="docs-viewer card">
             <div className="docs-viewer-bar mono">{t('docs.viewer')}</div>
             {pdf ? (
-              !reading && <ThesisViewer src={pdf} />
+              <div className="docs-viewer-slot" ref={viewerSlotRef}>
+                {inView && !reading && <ThesisViewer src={pdf} />}
+              </div>
             ) : (
               <div className="media-placeholder pdf-placeholder">
                 <span className="media-ph-badge">{t('common.comingSoon')}</span>

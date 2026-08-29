@@ -101,7 +101,13 @@ export default function ThesisViewer({ src }) {
         const worker = await import('pdfjs-dist/build/pdf.worker.min.mjs?url');
         pdfjs.GlobalWorkerOptions.workerSrc = worker.default;
 
-        doc = await pdfjs.getDocument({ url: src }).promise;
+        doc = await pdfjs.getDocument({
+          url: src,
+          // GitHub Pages serves byte ranges, so fetch only the pages actually
+          // being read rather than pulling the whole file up front.
+          disableAutoFetch: true,
+          disableStream: false,
+        }).promise;
         if (cancelled) return;
         docRef.current = doc;
 
