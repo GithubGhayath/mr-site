@@ -43,26 +43,16 @@ export default function Gallery() {
         ))}
       </div>
 
-      <div className="gallery-grid">
-        {config.PROJECT_VIDEO && (
+      {config.PROJECT_VIDEO && (
+        <div className="gallery-grid">
           <Reveal>
             <div className="gallery-item gallery-video card">
               <video src={asset(config.PROJECT_VIDEO)} controls preload="metadata" />
               <span className="gallery-caption">{t('gallery.video')}</span>
             </div>
           </Reveal>
-        )}
-        {[...Array(config.PROJECT_VIDEO ? 5 : 6)].map((_, i) => (
-          <Reveal key={i} delay={0.05 * i}>
-            <div className="gallery-item media-placeholder card">
-              <span className="media-ph-badge">{t('common.comingSoon')}</span>
-              <Image size={26} />
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <p className="gallery-note body">{t('gallery.placeholder')}</p>
+        </div>
+      )}
 
       {/* Engineering drawing archive — every card opens its original PDF sheet */}
       <div className="dwg-head">
