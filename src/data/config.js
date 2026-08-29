@@ -10,8 +10,16 @@ export const config = {
       ar: 'قسم هندسة التصميم الميكانيكي',
     },
   },
-  // Drop the thesis PDF into /public and set the filename here to enable the viewer.
-  THESIS_PDF: '', // e.g. 'thesis.pdf'
+  // Thesis PDF in /public. Viewing is open; the download action asks for a
+  // request instead (see components/ThesisRequest.jsx).
+  THESIS_PDF: 'thesis.pdf',
+  // Optional public form endpoint (Formspree / Web3Forms / Getform ...) used to
+  // post thesis access requests. Supplied at build time via
+  // VITE_THESIS_FORM_ENDPOINT — it is a public endpoint id, never a secret, and
+  // it is never committed. With no endpoint set, requests are handed to the
+  // visitor's own mail client instead. A static site has no server and must
+  // never carry mail credentials.
+  THESIS_REQUEST_ENDPOINT: import.meta.env.VITE_THESIS_FORM_ENDPOINT || '',
   // Drop the project video into /public and set the filename here.
   PROJECT_VIDEO: '', // e.g. 'project-video.mp4'
   // Production-line layout image in /public (annotated Wood-Mizer MR200 line render).

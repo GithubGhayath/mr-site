@@ -463,6 +463,33 @@ export const translations = {
       viewerNote: 'The thesis PDF will be embedded here for in-browser viewing.',
       open: 'Open document',
       download: 'Download PDF',
+      request: 'Request the thesis',
+      accessNote:
+        'The thesis is open to read in the viewer beside this card. For a copy of the file, send the team a short request.',
+      requestTitle: 'Request access to the thesis',
+      requestDoneHead: 'Thesis request',
+      requestIntro:
+        'Tell us who you are and we will send you the thesis. Reading it here needs no request — this is only for receiving your own copy.',
+      fieldName: 'Name',
+      fieldEmail: 'Email address',
+      fieldPurpose: 'What do you need it for?',
+      optional: '(optional)',
+      errName: 'Please enter your name.',
+      errEmail: 'Please enter your email address.',
+      errEmailFormat: 'That email address does not look right.',
+      submit: 'Send the request',
+      sending: 'Sending…',
+      cancel: 'Cancel',
+      requestNote:
+        'Your details go only to the project team, and are used only to answer this request.',
+      mailSubject: 'SMRM thesis access request',
+      mailFooter: 'Sent from the SMRM project website.',
+      sentTitle: 'Your request is on its way',
+      sentBody:
+        'The project team has received your request and will reply to the address you gave.',
+      preparedTitle: 'Your request is ready to send',
+      preparedBody:
+        'We have opened your mail app with the request written out. Press send there and it will reach the project team.',
     },
 
     references: {
@@ -1035,6 +1062,32 @@ export const translations = {
       viewerNote: 'ستُضمَّن أطروحة الـ PDF هنا للعرض داخل المتصفّح.',
       open: 'افتح الوثيقة',
       download: 'تنزيل PDF',
+      request: 'اطلب الأطروحة',
+      accessNote:
+        'الأطروحة متاحة للقراءة في العارض المجاور. أمّا للحصول على نسخة من الملف فأرسل إلى الفريق طلباً قصيراً.',
+      requestTitle: 'طلب الحصول على الأطروحة',
+      requestDoneHead: 'طلب الأطروحة',
+      requestIntro:
+        'عرّفنا بنفسك وسنرسل إليك الأطروحة. أمّا قراءتها هنا فلا تحتاج إلى طلب، وهذا النموذج فقط للحصول على نسخة خاصة بك.',
+      fieldName: 'الاسم',
+      fieldEmail: 'البريد الإلكتروني',
+      fieldPurpose: 'فيمَ ستستخدمها؟',
+      optional: '(اختياري)',
+      errName: 'الرجاء إدخال اسمك.',
+      errEmail: 'الرجاء إدخال بريدك الإلكتروني.',
+      errEmailFormat: 'صيغة البريد الإلكتروني غير صحيحة.',
+      submit: 'إرسال الطلب',
+      sending: 'جارٍ الإرسال…',
+      cancel: 'إلغاء',
+      requestNote:
+        'لا تصل بياناتك إلا إلى فريق المشروع، ولا تُستخدم إلا للردّ على هذا الطلب.',
+      mailSubject: 'طلب الحصول على أطروحة SMRM',
+      mailFooter: 'مُرسَل من موقع مشروع SMRM.',
+      sentTitle: 'طلبك في طريقه إلينا',
+      sentBody: 'وصل طلبك إلى فريق المشروع، وسيصلك الردّ على البريد الذي أدخلته.',
+      preparedTitle: 'طلبك جاهز للإرسال',
+      preparedBody:
+        'فتحنا تطبيق البريد لديك والطلب مكتوب فيه. اضغط إرسال هناك ليصل إلى فريق المشروع.',
     },
 
     references: {

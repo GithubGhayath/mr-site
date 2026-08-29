@@ -732,6 +732,7 @@ html[dir='rtl'] .line-arrow { transform: translateY(-50%) scaleX(-1); }
 .docs-info { display: flex; flex-direction: column; }
 .docs-info-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
 .docs-actions { display: flex; gap: 0.8rem; margin-top: auto; padding-top: 1.4rem; flex-wrap: wrap; }
+.docs-access-note { margin-top: 0.9rem; font-size: 0.83rem; color: var(--text-dim); line-height: 1.6; }
 .is-disabled { opacity: 0.5; pointer-events: none; }
 .docs-viewer { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
 .docs-viewer-bar { padding: 0.7rem 1.2rem; background: var(--surface-2); border-bottom: 1px solid var(--border); font-size: 0.78rem; color: var(--text-dim); }

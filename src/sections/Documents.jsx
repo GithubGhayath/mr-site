@@ -1,11 +1,14 @@
-import { FileText, Download, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { FileText, KeyRound, ExternalLink } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal, asset } from '../components/ui';
+import ThesisRequest from '../components/ThesisRequest';
 import { config } from '../data/config';
 
 export default function Documents() {
   const { t } = useLang();
   const pdf = config.THESIS_PDF ? asset(config.THESIS_PDF) : '';
+  const [requesting, setRequesting] = useState(false);
 
   return (
     <Section id="docs">
@@ -29,15 +32,16 @@ export default function Documents() {
               >
                 <ExternalLink size={18} /> {t('docs.open')}
               </a>
-              <a
+              <button
                 className={`btn btn-ghost ${pdf ? '' : 'is-disabled'}`}
-                href={pdf || undefined}
-                download
-                aria-disabled={!pdf}
+                type="button"
+                onClick={() => setRequesting(true)}
+                disabled={!pdf}
               >
-                <Download size={18} /> {t('docs.download')}
-              </a>
+                <KeyRound size={18} /> {t('docs.request')}
+              </button>
             </div>
+            <p className="docs-access-note">{t('docs.accessNote')}</p>
           </div>
         </Reveal>
 
@@ -58,6 +62,8 @@ export default function Documents() {
           </div>
         </Reveal>
       </div>
+
+      <ThesisRequest open={requesting} onClose={() => setRequesting(false)} />
     </Section>
   );
 }
