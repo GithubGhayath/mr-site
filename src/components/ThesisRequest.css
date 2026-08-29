@@ -1,0 +1,178 @@
+/* ============================================================
+   Thesis access request dialog
+   Uses the shared tokens/primitives from index.css; logical
+   properties keep it correct in both RTL and LTR.
+   ============================================================ */
+
+.treq-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: rgba(6, 12, 10, 0.66);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow-y: auto;
+}
+
+.treq-dialog {
+  width: min(540px, 100%);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  box-shadow: var(--shadow-soft);
+}
+/* the dialog is not a hover target like the other cards */
+.treq-dialog:hover {
+  transform: none;
+  background: var(--card);
+  border-color: var(--border);
+}
+
+.treq-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.treq-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.15rem;
+}
+.treq-close {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  background: var(--surface);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.treq-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.treq-intro {
+  font-size: 0.94rem;
+  margin-bottom: 1.2rem;
+}
+
+.treq-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.treq-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.treq-label {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.treq-label em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.treq-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.6rem 0.8rem;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.treq-input::placeholder {
+  color: var(--text-dim);
+}
+.treq-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.treq-input.has-error {
+  border-color: #e0573a;
+}
+.treq-textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+
+.treq-error {
+  font-size: 0.8rem;
+  color: #e0573a;
+}
+
+.treq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.4rem;
+}
+.treq-actions .btn[disabled] {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.treq-note {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ---------- confirmation state ---------- */
+.treq-done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0 0.4rem;
+}
+.treq-done-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--brand-orange-soft);
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+.treq-done h4 {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.treq-done .body {
+  font-size: 0.92rem;
+  max-width: 42ch;
+}
+.treq-done .btn {
+  margin-top: 0.7rem;
+}
+
+@media (max-width: 460px) {
+  .treq-actions .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
