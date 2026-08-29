@@ -53,6 +53,12 @@ Drop the file into `public/` and set the matching field in `src/data/config.js`:
 | `APP_DEMO_VIDEO`       | Desktop-app demo video in the Software section (set: `app-demo.mp4`) |
 | `GITHUB_REPO`          | The application repository link           |
 
+The Gallery section also holds the engineering drawing archive: the original CAD sheets
+live in `public/drawings/` as PDFs, each with a first-page preview of the same name in
+`public/drawings/thumbs/`. A card opens its original PDF in a new tab. To add a sheet, drop
+the PDF and its preview in, then append the slug to `DRAWINGS` in `src/sections/Gallery.jsx`
+and a matching entry to `gallery.drawings` in both language trees.
+
 The Software section also displays the five real application screenshots from
 `public/screens/` (`app-home`, `app-monitoring`, `app-history`, `app-process`,
 `app-maintenance`). Sections with unset media show a labelled placeholder until

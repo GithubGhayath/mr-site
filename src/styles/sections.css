@@ -496,6 +496,71 @@ html[dir='rtl'] .line-arrow { transform: translateY(-50%) scaleX(-1); }
 .gallery-caption { display: block; padding: 0.6rem 1rem; font-size: 0.85rem; color: var(--text-soft); }
 .gallery-note { text-align: center; margin-top: 1.8rem; color: var(--text-dim); font-size: 0.9rem; }
 
+/* Engineering drawing archive (CAD sheets) */
+.dwg-head { margin-top: clamp(2.6rem, 6vw, 3.6rem); margin-bottom: 1.5rem; }
+.dwg-title { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; font-size: 1.25rem; }
+.dwg-lead { max-width: 68ch; }
+.dwg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.2rem; }
+/* the Reveal wrapper is the grid child — stretch it so cards share a height */
+.dwg-grid > * { display: flex; }
+.dwg-card {
+  flex: 1; width: 100%;
+  display: flex; flex-direction: column;
+  padding: 0; overflow: hidden;
+}
+.dwg-card:hover { border-color: var(--accent); }
+.dwg-shot {
+  position: relative; display: block;
+  aspect-ratio: 297 / 210;            /* the sheets are landscape A3/A0 */
+  background: #fff;                   /* drawings are black on white paper */
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.dwg-shot img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease);
+}
+.dwg-card:hover .dwg-shot img { transform: scale(1.04); }
+.dwg-format {
+  position: absolute; inset-inline-start: 0.65rem; top: 0.65rem;
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em;
+  padding: 0.2rem 0.5rem; border-radius: 6px;
+  background: rgba(10, 18, 16, 0.74); color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dwg-open {
+  position: absolute; inset-inline-end: 0.65rem; bottom: 0.65rem;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--font-head); font-size: 0.8rem; font-weight: 600;
+  padding: 0.38rem 0.75rem; border-radius: 999px;
+  background: var(--accent); color: #fff;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.dwg-card:hover .dwg-open,
+.dwg-card:focus-visible .dwg-open { opacity: 1; transform: none; }
+/* touch devices never hover — keep the affordance visible there */
+@media (hover: none) {
+  .dwg-open { opacity: 1; transform: none; }
+}
+.dwg-body { display: flex; flex-direction: column; gap: 0.45rem; padding: 1.1rem 1.2rem 1.2rem; flex: 1; }
+.dwg-type {
+  font-family: var(--font-head); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+}
+.dwg-name { font-family: var(--font-head); font-size: 1.02rem; font-weight: 700; line-height: 1.3; }
+.dwg-desc { font-size: 0.88rem; }
+.dwg-specs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.7rem; }
+/* like .tag, but in the body font so Arabic spec chips render correctly */
+.dwg-spec {
+  display: inline-flex; align-items: center;
+  font-size: 0.72rem; font-weight: 500;
+  padding: 0.28rem 0.6rem; border-radius: 999px;
+  background: var(--brand-orange-soft); color: var(--accent);
+  border: 1px solid rgba(224, 92, 26, 0.25);
+}
+
 /* ---------------- DOCUMENTS ---------------- */
 .docs-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 1.4rem; align-items: stretch; }
 .docs-info { display: flex; flex-direction: column; }
@@ -637,5 +702,6 @@ html[dir='rtl'] .footer-right { align-items: flex-start; }
 
 @media (max-width: 460px) {
   .kpi-row { grid-template-columns: 1fr; }
+  .dwg-grid { grid-template-columns: 1fr; }
   .hero-cta .btn { width: 100%; justify-content: center; }
 }

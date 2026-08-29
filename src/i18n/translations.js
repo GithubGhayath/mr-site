@@ -313,6 +313,98 @@ export const translations = {
       video: 'Project video',
       photos: 'Photos',
       cad: 'CAD drawings',
+      cadTitle: 'Engineering drawing archive',
+      cadLead:
+        'Manufacturing and assembly drawings of the main parts of the machine. Open any sheet to read the original PDF at the resolution it was drawn.',
+      openPdf: 'Open PDF',
+      cadNote:
+        'Each sheet opens as its original PDF in a new tab, so dimensions, tolerances and title blocks stay readable at any zoom.',
+      drawings: [
+        {
+          title: 'Cutting system — general assembly',
+          type: 'Assembly drawing',
+          desc: 'The complete cutting arbor: the cutting shaft carrying ten saw blades separated by nine 31.4 mm spacers, clamped by a cover, an M10 washer and a screw, supported on 16007 and 16008 bearings in their housings, and driven through a keyway and coupling by the cutting motor.',
+          specs: ['13 items', 'Scale 1:3', 'mm'],
+        },
+        {
+          title: 'Feeding system — general assembly',
+          type: 'Assembly drawing',
+          desc: 'The full feed train: the feeding motor drives the feeding shaft through the gear-box pulley, the shaft pulley and a V-belt, while the feeding arm carries two toothed feed rollers on 16009 bearings, with springs, a rubber bushing and its housing holding the rollers against the timber.',
+          specs: ['18 items', 'Scale 1:2', 'mm'],
+        },
+        {
+          title: 'V-belt drive assembly',
+          type: 'Assembly drawing',
+          desc: 'The belt drive that transmits motion between the gear-box pulley and the feeding-shaft pulley through a single V-belt.',
+          specs: ['3 items', 'Scale 1:4', 'mm'],
+        },
+        {
+          title: 'Feeding arm with bearings and bearing housing',
+          type: 'Assembly drawing',
+          desc: 'The feeding-arm sub-assembly: the arm itself, two bearing housings carrying 16009 bearings, a pin, and the rubber bushing with its own housing.',
+          specs: ['6 items', 'Scale 1:2', 'mm'],
+        },
+        {
+          title: 'Cutting shaft',
+          type: 'Part drawing',
+          desc: 'The cantilever arbor that carries the blade stack, 527.60 mm long, with an M10x1.0 tapped hole at the clamping end. Detail A is drawn at 1:1.',
+          specs: ['Steel G100160 CD', 'Ra 1.6 µm', 'Dwg P01'],
+        },
+        {
+          title: 'Saw blade',
+          type: 'Part drawing',
+          desc: 'The circular ripping blade: 20 flat-top-ground carbide teeth on an AISI 304 stainless steel body, cutting a 3.90 mm kerf with a 2.50 mm plate. Section A-A and the tooth details are drawn enlarged.',
+          specs: ['20 teeth', 'Kerf 3.90 mm', 'Dwg Po2'],
+        },
+        {
+          title: 'Spacer (31.4 mm)',
+          type: 'Part drawing',
+          desc: 'The precision spacer that sets the gap between two blades, and with it the width of the plank. Drawn at 2:1 with sections A-A and B-B.',
+          specs: ['Aluminium alloy 2011', 'Ra 3.2 µm', 'Dwg P03'],
+        },
+        {
+          title: 'Feeding shaft',
+          type: 'Part drawing',
+          desc: 'The 356 mm feed shaft that carries the toothed feed rollers, with Detail A drawn at 1:1.',
+          specs: ['Steel G100 160 HR', 'Ra 3.6 µm', 'Dwg P05'],
+        },
+        {
+          title: 'Toothed feed roller',
+          type: 'Part drawing',
+          desc: 'The toothed roller that grips the log and drives it through the machine, quenched and tempered to 35–45 HRC. Detail A is drawn at 2:1.',
+          specs: ['AISI 4140 alloy steel', '35–45 HRC', 'Dwg p014'],
+        },
+        {
+          title: 'Feeding shaft pulley',
+          type: 'Part drawing',
+          desc: 'The cast-iron V-belt pulley mounted on the feeding shaft, the driven end of the belt drive.',
+          specs: ['Cast iron', 'Ra 3.2 µm', 'Dwg P01'],
+        },
+        {
+          title: 'Gear box feeding pulley',
+          type: 'Part drawing',
+          desc: 'The cast-iron pulley on the gear-box output, the driving end of the same belt drive.',
+          specs: ['Cast iron', 'Ra 3.2 µm', 'Dwg P02'],
+        },
+        {
+          title: 'Housing bearing 16009',
+          type: 'Part drawing',
+          desc: 'The normalised C45 steel housing that seats the 16009 bearing on the feeding arm. Drawn at 2:1.',
+          specs: ['C45 steel', 'Normalised', 'Dwg P10'],
+        },
+        {
+          title: 'Rubber bushing',
+          type: 'Part drawing',
+          desc: 'The neoprene bushing whose stated function is vibration damping, impact isolation and friction reduction. Drawn at 4:1.',
+          specs: ['Neoprene', 'Scale 4:1', 'Dwg P07'],
+        },
+        {
+          title: 'Hexagon head bolt',
+          type: 'Part drawing',
+          desc: 'The M10x1 property-class 8.8 bolt used to clamp the stack, quenched and tempered, zinc plated, to ISO 898-1 and ISO 2768-m.',
+          specs: ['M10x1 · class 8.8', 'Zinc plated', 'Dwg P06'],
+        },
+      ],
     },
 
     docs: {
@@ -747,6 +839,98 @@ export const translations = {
       video: 'فيديو المشروع',
       photos: 'الصور',
       cad: 'مخطّطات CAD',
+      cadTitle: 'أرشيف المخطّطات الهندسية',
+      cadLead:
+        'مخطّطات التصنيع والتجميع لأهمّ أجزاء الآلة. افتح أي لوحة لقراءة ملف PDF الأصلي بالدقّة التي رُسم بها.',
+      openPdf: 'فتح ملف PDF',
+      cadNote:
+        'تُفتح كل لوحة بصيغتها الأصلية PDF في تبويب جديد، فتبقى الأبعاد والتفاوتات وجدول البيانات مقروءة عند أي تكبير.',
+      drawings: [
+        {
+          title: 'منظومة القطع — مخطّط التجميع العام',
+          type: 'مخطّط تجميع',
+          desc: 'مجموعة القطع كاملة: عمود القطع الحامل لعشر شفرات منشار تفصل بينها تسعة فواصل بسماكة 31.4 مم، مثبّتة بغطاء وحلقة M10 وبرغي، مرتكزة على محملَي 16007 و16008 داخل بيوتهما، ومُدارة عبر خابور ووصلة من محرّك القطع.',
+          specs: ['13 عنصراً', 'مقياس 1:3', 'مم'],
+        },
+        {
+          title: 'منظومة التغذية — مخطّط التجميع العام',
+          type: 'مخطّط تجميع',
+          desc: 'سلسلة التغذية كاملة: يُدير محرّك التغذية عمودَ التغذية عبر بكرة صندوق التروس وبكرة العمود وسير شبه منحرف، بينما يحمل ذراع التغذية أسطوانتَي تغذية مسنّنتين على محملَي 16009، مع نوابض وجلبة مطاطية وبيتها لإبقاء الأسطوانتين ملامستين للخشب.',
+          specs: ['18 عنصراً', 'مقياس 1:2', 'مم'],
+        },
+        {
+          title: 'مجموعة النقل بالسير شبه المنحرف',
+          type: 'مخطّط تجميع',
+          desc: 'مجموعة النقل التي تنقل الحركة بين بكرة صندوق التروس وبكرة عمود التغذية عبر سير شبه منحرف واحد.',
+          specs: ['3 عناصر', 'مقياس 1:4', 'مم'],
+        },
+        {
+          title: 'ذراع التغذية مع المحامل وبيت المحمل',
+          type: 'مخطّط تجميع',
+          desc: 'المجموعة الفرعية لذراع التغذية: الذراع نفسه، وبيتا محملين يحملان محملَي 16009، ومسمار تثبيت، والجلبة المطاطية مع بيتها الخاص.',
+          specs: ['6 عناصر', 'مقياس 1:2', 'مم'],
+        },
+        {
+          title: 'عمود القطع',
+          type: 'مخطّط جزء',
+          desc: 'العمود الكابولي الحامل لرزمة الشفرات، بطول 527.60 مم، ومزوّد بثقب ملولب M10x1.0 في طرف التثبيت. التفصيل A مرسوم بمقياس 1:1.',
+          specs: ['فولاذ G100160 CD', 'خشونة Ra 1.6 ميكرومتر', 'لوحة P01'],
+        },
+        {
+          title: 'شفرة المنشار الدائرية',
+          type: 'مخطّط جزء',
+          desc: 'شفرة التشريح الدائرية: 20 سنّاً من الكربيد بتجليخ مسطّح القمّة على جسم من الفولاذ المقاوم للصدأ AISI 304، تقطع مجرى بعرض 3.90 مم بجسم سماكته 2.50 مم. المقطع A-A وتفاصيل السنّ مرسومة مكبّرة.',
+          specs: ['20 سنّاً', 'عرض القطع 3.90 مم', 'لوحة Po2'],
+        },
+        {
+          title: 'الفاصل (31.4 مم)',
+          type: 'مخطّط جزء',
+          desc: 'الفاصل الدقيق الذي يحدّد المسافة بين شفرتين، وبالتالي عرض اللوح الناتج. مرسوم بمقياس 2:1 مع المقطعين A-A وB-B.',
+          specs: ['سبيكة ألمنيوم 2011', 'خشونة Ra 3.2 ميكرومتر', 'لوحة P03'],
+        },
+        {
+          title: 'عمود التغذية',
+          type: 'مخطّط جزء',
+          desc: 'عمود التغذية بطول 356 مم، وهو الحامل لأسطوانات التغذية المسنّنة، مع التفصيل A بمقياس 1:1.',
+          specs: ['فولاذ G100 160 HR', 'خشونة Ra 3.6 ميكرومتر', 'لوحة P05'],
+        },
+        {
+          title: 'أسطوانة التغذية المسنّنة',
+          type: 'مخطّط جزء',
+          desc: 'الأسطوانة المسنّنة التي تُمسك الجذع وتدفعه داخل الآلة، مُسقاة ومراجَعة حرارياً حتى صلادة 35–45 HRC. التفصيل A مرسوم بمقياس 2:1.',
+          specs: ['فولاذ سبائكي AISI 4140', 'صلادة 35–45 HRC', 'لوحة p014'],
+        },
+        {
+          title: 'بكرة عمود التغذية',
+          type: 'مخطّط جزء',
+          desc: 'بكرة السير شبه المنحرف المصنوعة من حديد الزهر والمركّبة على عمود التغذية، وهي الطرف المُقاد في مجموعة النقل.',
+          specs: ['حديد زهر', 'خشونة Ra 3.2 ميكرومتر', 'لوحة P01'],
+        },
+        {
+          title: 'بكرة صندوق التروس',
+          type: 'مخطّط جزء',
+          desc: 'بكرة حديد الزهر المركّبة على مخرج صندوق التروس، وهي الطرف القائد في مجموعة النقل نفسها.',
+          specs: ['حديد زهر', 'خشونة Ra 3.2 ميكرومتر', 'لوحة P02'],
+        },
+        {
+          title: 'بيت المحمل 16009',
+          type: 'مخطّط جزء',
+          desc: 'بيت المحمل المصنوع من فولاذ C45 المُعالج بالتطبيع، والذي يستقبل محمل 16009 على ذراع التغذية. مرسوم بمقياس 2:1.',
+          specs: ['فولاذ C45', 'معالجة بالتطبيع', 'لوحة P10'],
+        },
+        {
+          title: 'الجلبة المطاطية',
+          type: 'مخطّط جزء',
+          desc: 'جلبة من النيوبرين وظيفتها المذكورة في اللوحة هي تخميد الاهتزاز وعزل الصدمات وتقليل الاحتكاك. مرسومة بمقياس 4:1.',
+          specs: ['نيوبرين', 'مقياس 4:1', 'لوحة P07'],
+        },
+        {
+          title: 'برغي برأس سداسي',
+          type: 'مخطّط جزء',
+          desc: 'برغي M10x1 من صنف المقاومة 8.8 المستخدم في تثبيت رزمة الشفرات، مُسقى ومراجَع حرارياً ومطليّ بالزنك، وفق المواصفتين ISO 898-1 وISO 2768-m.',
+          specs: ['M10x1 · صنف 8.8', 'مطليّ بالزنك', 'لوحة P06'],
+        },
+      ],
     },
 
     docs: {
