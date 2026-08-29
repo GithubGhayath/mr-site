@@ -500,6 +500,62 @@ html[dir='rtl'] .scroll-hint { transform: translateX(50%); }
 }
 .stop-sim { color: var(--text-dim); font-size: 0.85rem; }
 
+/* The real maintenance alert document */
+.alert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.6rem, 4vw, 2.6rem);
+  align-items: start;
+  margin-top: clamp(2.4rem, 5vw, 3.2rem);
+}
+.alert-title { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; font-size: 1.25rem; }
+.alert-contents { margin-top: 1.2rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.alert-contents li {
+  display: flex; gap: 0.5rem; align-items: flex-start;
+  font-size: 0.92rem; color: var(--text-soft);
+}
+.alert-contents li svg { flex: none; margin-top: 0.2rem; }
+.alert-doc { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.alert-doc:hover { border-color: var(--accent); }
+.alert-shot {
+  position: relative; display: block;
+  aspect-ratio: 5 / 6;              /* the alert is letter portrait; crop past the fold */
+  background: #fff;                 /* the printed email is dark on white */
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.alert-shot img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  transition: transform 0.4s var(--ease);
+}
+.alert-doc:hover .alert-shot img { transform: scale(1.03); }
+.alert-format {
+  position: absolute; inset-inline-start: 0.65rem; top: 0.65rem;
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem; border-radius: 6px;
+  background: rgba(10, 18, 16, 0.74); color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.alert-open {
+  position: absolute; inset-inline-end: 0.65rem; bottom: 0.65rem;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--font-head); font-size: 0.8rem; font-weight: 600;
+  padding: 0.38rem 0.75rem; border-radius: 999px;
+  background: var(--accent); color: #fff;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.alert-doc:hover .alert-open,
+.alert-doc:focus-visible .alert-open { opacity: 1; transform: none; }
+/* touch devices never hover — keep the affordance visible there */
+@media (hover: none) {
+  .alert-open { opacity: 1; transform: none; }
+}
+.alert-meta { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.9rem 1.1rem 1rem; }
+.alert-subject { font-family: var(--font-head); font-size: 0.9rem; font-weight: 600; line-height: 1.35; }
+.alert-stamp { font-size: 0.8rem; color: var(--text-dim); }
+
 /* ---------------- PRODUCTION LINE ---------------- */
 .line-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 3rem); align-items: center; margin-bottom: 2rem; }
 .line-text .body + .body { margin-top: 1rem; }
@@ -723,7 +779,8 @@ html[dir='rtl'] .footer-right { align-items: flex-start; }
   .docs-grid,
   .ref-grid,
   .screen-row,
-  .mnt-intro-grid { grid-template-columns: 1fr; }
+  .mnt-intro-grid,
+  .alert-grid { grid-template-columns: 1fr; }
   /* stacked: screenshot always first, text after */
   .screen-row.flip .screen-shot { order: 0; }
   .monitoring-grid { grid-template-columns: 1fr; }

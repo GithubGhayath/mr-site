@@ -1,6 +1,14 @@
-import { Gauge, ScanLine, Mail, ShieldAlert, Sparkles, CircleStop } from 'lucide-react';
+import {
+  Gauge, ScanLine, Mail, ShieldAlert, Sparkles, CircleStop, MailWarning,
+  CheckCircle2, ExternalLink,
+} from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
-import { Section, SectionHead, Reveal } from '../components/ui';
+import { Section, SectionHead, Reveal, asset } from '../components/ui';
+
+// The real alert the application emailed when bearing 16007 #11 reached its
+// rated life — the original PDF lives in /public/reports.
+const ALERT_PDF = 'reports/maintenance-alert.pdf';
+const ALERT_THUMB = 'reports/thumbs/maintenance-alert.png';
 
 const STEP_ICONS = [Gauge, ScanLine, Mail, ShieldAlert];
 
@@ -77,6 +85,56 @@ export default function Maintenance() {
               <span className="stop-sim mono">machine.state = HALTED</span>
             </div>
           </div>
+        </Reveal>
+      </div>
+
+      {/* The real alert, exactly as it was sent */}
+      <div className="alert-grid">
+        <div className="alert-text">
+          <Reveal>
+            <h3 className="subheading alert-title">
+              <MailWarning size={20} className="accent" />
+              {t('maintenance.alertTitle')}
+            </h3>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <p className="body">{t('maintenance.alertLead')}</p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <ul className="alert-contents">
+              {t('maintenance.alertContents').map((c) => (
+                <li key={c}><CheckCircle2 size={15} className="accent" />{c}</li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.1}>
+          <a
+            className="alert-doc card"
+            href={asset(ALERT_PDF)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="alert-shot">
+              <img
+                src={asset(ALERT_THUMB)}
+                alt={t('maintenance.alertSubject')}
+                width="901"
+                height="1165"
+                loading="lazy"
+              />
+              <span className="alert-format mono">{t('maintenance.alertPages')}</span>
+              <span className="alert-open">
+                <ExternalLink size={14} />
+                {t('maintenance.openAlert')}
+              </span>
+            </span>
+            <span className="alert-meta">
+              <span className="alert-subject">{t('maintenance.alertSubject')}</span>
+              <span className="alert-stamp">{t('maintenance.alertStamp')}</span>
+            </span>
+          </a>
         </Reveal>
       </div>
     </Section>
