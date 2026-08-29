@@ -172,6 +172,21 @@ export const translations = {
         'Machine parameters',
       ],
       videoTitle: 'Watch the application in action',
+      sysdocTitle: 'Software system documentation',
+      sysdocLead:
+        'The application carries its own specification document: 75 pages covering the purpose of the software, its stakeholders and scope, its functional requirements, its architecture and database, the monitoring panel, the simulation layer, the predictive-maintenance system and the Gmail integration — illustrated with UML diagrams and screenshots of the real interfaces. Every function in it is labelled IMPLEMENTED, SIMULATED or FUTURE, and each label was checked against the project source, so the document states plainly what runs today and what is still ahead.',
+      sysdocContents: [
+        'Purpose, stakeholders and system scope',
+        'Functional requirements and system architecture',
+        'Entity-relationship model of the database',
+        'Monitoring panel and the simulation layer',
+        'Predictive maintenance and the Gmail alert flow',
+        'UML use case, sequence and activity diagrams',
+      ],
+      sysdocMeta: ['75 pages', 'App version 2.0 Alpha', 'Arabic, with UML diagrams'],
+      sysdocDocTitle: 'Programming Control System',
+      sysdocDocSub: 'Software specification & analysis · 28 August 2026',
+      openSysdoc: 'Open the documentation',
       videoCaption:
         'A full walkthrough of the SMRM controller — wood selection, force calculation, live monitoring, history analytics and PDF export. Playback is slightly accelerated for presentation.',
       screens: [
@@ -729,6 +744,21 @@ export const translations = {
         'معاملات الآلة',
       ],
       videoTitle: 'شاهد البرنامج أثناء العمل',
+      sysdocTitle: 'وثيقة النظام البرمجي',
+      sysdocLead:
+        'للتطبيق وثيقته الخاصة: خمسٌ وسبعون صفحة تغطّي غرض المنظومة البرمجية وأصحاب مصلحتها ونطاقها، ومتطلّباتها الوظيفية، ومعماريّتها وقاعدة بياناتها، ولوحة المراقبة، وطبقة المحاكاة، ومنظومة الصيانة التنبّؤية، والتكامل مع Gmail — مع مخطّطات UML ولقطات من الواجهات الفعلية. وتُصنَّف كل وظيفة فيها صراحةً بأنّها IMPLEMENTED أو SIMULATED أو FUTURE، وقد جرى التحقّق من كل تصنيف بالرجوع إلى الشيفرة المصدرية، فتقول الوثيقة بوضوح ما يعمل اليوم وما لم يُنجَز بعد.',
+      sysdocContents: [
+        'الغرض وأصحاب المصلحة ونطاق النظام',
+        'المتطلّبات الوظيفية ومعماريّة النظام',
+        'مخطّط الكيانات والعلاقات لقاعدة البيانات',
+        'لوحة المراقبة وطبقة المحاكاة',
+        'الصيانة التنبّؤية ومسار تنبيه Gmail',
+        'مخطّطات UML: حالات الاستخدام والتسلسل والنشاط',
+      ],
+      sysdocMeta: ['٧٥ صفحة', 'إصدار التطبيق 2.0 Alpha', 'بالعربية، مع مخطّطات UML'],
+      sysdocDocTitle: 'نظام التحكم البرمجي',
+      sysdocDocSub: 'وثيقة توصيف وتحليل النظام البرمجي · ٢٨ آب ٢٠٢٦',
+      openSysdoc: 'فتح الوثيقة',
       videoCaption:
         'جولة كاملة في برنامج التحكّم بآلة SMRM — اختيار الخشب، وحساب القوى، والمراقبة الحيّة، وتحليلات السجلّ، وتصدير PDF. سُرِّع العرض قليلاً لسلاسة التقديم.',
       screens: [

@@ -1,8 +1,13 @@
 import { useRef, useCallback } from 'react';
-import { MonitorPlay, CheckCircle2 } from 'lucide-react';
+import { MonitorPlay, CheckCircle2, BookText, ExternalLink } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal, asset } from '../components/ui';
 import { config } from '../data/config';
+
+// The software specification document and its cover preview, in /public/docs.
+// View only — it is deliberately opened, never offered as a download.
+const SYSDOC_PDF = 'docs/software-system-documentation.pdf';
+const SYSDOC_THUMB = 'docs/thumbs/software-system-documentation.png';
 
 // Screenshot files matching the order of software.screens in translations.
 const SCREEN_IMGS = [
@@ -87,6 +92,63 @@ export default function Software() {
           <p className="body">{t('software.homeBasis')}</p>
         </div>
       </Reveal>
+
+      {/* The specification document for everything above — view only */}
+      <div className="sysdoc-grid">
+        <div className="sysdoc-text">
+          <Reveal>
+            <h3 className="subheading sysdoc-title">
+              <BookText size={20} className="accent" />
+              {t('software.sysdocTitle')}
+            </h3>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <p className="body">{t('software.sysdocLead')}</p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <ul className="sysdoc-contents">
+              {t('software.sysdocContents').map((c) => (
+                <li key={c}><CheckCircle2 size={15} className="accent" />{c}</li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <div className="sysdoc-meta">
+              {t('software.sysdocMeta').map((m) => (
+                <span key={m} className="pill">{m}</span>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.1}>
+          <a
+            className="sysdoc-doc card"
+            href={asset(SYSDOC_PDF)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="sysdoc-shot">
+              <img
+                src={asset(SYSDOC_THUMB)}
+                alt={t('software.sysdocDocTitle')}
+                width="901"
+                height="1273"
+                loading="lazy"
+              />
+              <span className="sysdoc-format mono">PDF</span>
+              <span className="sysdoc-open">
+                <ExternalLink size={14} />
+                {t('software.openSysdoc')}
+              </span>
+            </span>
+            <span className="sysdoc-cap">
+              <span className="sysdoc-cap-title">{t('software.sysdocDocTitle')}</span>
+              <span className="sysdoc-cap-sub">{t('software.sysdocDocSub')}</span>
+            </span>
+          </a>
+        </Reveal>
+      </div>
     </Section>
   );
 }
