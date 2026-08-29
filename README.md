@@ -49,7 +49,7 @@ Drop the file into `public/` and set the matching field in `src/data/config.js`:
 | ---------------------- | ----------------------------------------- |
 | `THESIS_PDF`           | Enables the embedded PDF viewer (Documents) |
 | `PROJECT_VIDEO`        | Adds the project video to the Gallery     |
-| `PRODUCTION_LINE_IMG`  | Production-line layout image (set: `production-line.png`) |
+| `PRODUCTION_LINE_IMG`  | Production-line layout image (set: `production-line.jpg`) |
 | `APP_DEMO_VIDEO`       | Desktop-app demo video in the Software section (set: `app-demo.mp4`) |
 | `GITHUB_REPO`          | The application repository link           |
 

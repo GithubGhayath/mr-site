@@ -43,8 +43,8 @@ export default function ProductionLine() {
             <img
               src={asset(config.PRODUCTION_LINE_IMG)}
               alt={t('line.caption')}
-              width="896"
-              height="466"
+              width="1339"
+              height="784"
               loading="lazy"
             />
             <p className="line-caption">{t('line.caption')}</p>

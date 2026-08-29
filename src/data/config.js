@@ -14,8 +14,8 @@ export const config = {
   THESIS_PDF: '', // e.g. 'thesis.pdf'
   // Drop the project video into /public and set the filename here.
   PROJECT_VIDEO: '', // e.g. 'project-video.mp4'
-  // Production-line layout image in /public (annotated TV6000 line render).
-  PRODUCTION_LINE_IMG: 'production-line.png',
+  // Production-line layout image in /public (annotated Wood-Mizer MR200 line render).
+  PRODUCTION_LINE_IMG: 'production-line.jpg',
   // Desktop-application demo video in /public (shown in the Software section).
   APP_DEMO_VIDEO: 'app-demo.mp4',
 };
