@@ -129,7 +129,8 @@ export default function Analytics() {
       </div>
 
       {/* The exported report itself — each card opens its original PDF */}
-      <div className="report-head">
+      <div className="report-grid">
+        <div className="report-head">
         <Reveal>
           <h3 className="subheading report-title">
             <FileText size={20} className="accent" />
@@ -145,10 +146,10 @@ export default function Analytics() {
               <span key={s} className="pill">{s}</span>
             ))}
           </div>
-        </Reveal>
-      </div>
+          </Reveal>
+        </div>
 
-      <div className="report-docs">
+        <div className="report-docs">
         {reports.map((r, i) => (
           <Reveal key={REPORTS[i]} delay={0.05 * i}>
             <a
@@ -176,8 +177,9 @@ export default function Analytics() {
                 <span className="report-wood">{r.wood}</span>
               </span>
             </a>
-          </Reveal>
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </div>
     </Section>
   );

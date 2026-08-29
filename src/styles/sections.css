@@ -471,11 +471,20 @@ html[dir='rtl'] .scroll-hint { transform: translateX(50%); }
 .ops-row:hover { background: var(--card-hover); }
 
 /* Exported process reports */
-.report-head { margin-top: clamp(2.6rem, 6vw, 3.6rem); margin-bottom: 1.5rem; }
+/* the explanation and the report sit side by side, as in the alert and
+   documentation blocks */
+.report-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.6rem, 4vw, 2.6rem);
+  align-items: start;
+  margin-top: clamp(2.6rem, 6vw, 3.6rem);
+}
+.report-head { margin: 0; }
 .report-title { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; font-size: 1.25rem; }
 .report-lead { max-width: 72ch; }
 .report-sections { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.1rem; }
-.report-docs { display: grid; grid-template-columns: 1fr; gap: 1.2rem; max-width: 360px; }
+.report-docs { display: grid; grid-template-columns: 1fr; gap: 1.2rem; width: 360px; max-width: 100%; }
 /* the Reveal wrapper is the grid child — stretch it so cards share a height */
 .report-docs > * { display: flex; }
 .report-card {
@@ -881,7 +890,8 @@ html[dir='rtl'] .footer-right { align-items: flex-start; }
   .screen-row,
   .mnt-intro-grid,
   .alert-grid,
-  .sysdoc-grid { grid-template-columns: 1fr; }
+  .sysdoc-grid,
+  .report-grid { grid-template-columns: 1fr; }
   /* stacked: screenshot always first, text after */
   .screen-row.flip .screen-shot { order: 0; }
   .monitoring-grid { grid-template-columns: 1fr; }
