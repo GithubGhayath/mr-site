@@ -273,6 +273,22 @@ export const translations = {
       kpiProcesses: 'Total processes',
       trendTitle: 'Production history trend',
       distTitle: 'Wood type distribution',
+      reportTitle: 'From one cut to an engineering record',
+      reportLead:
+        'Any operation in the archive can be exported as a report like the three below — real files written by the application, not mock-ups. A cut does not stay a cut: the software records when it ran and on which wood, the machine conditions it ran under, the seven force components and the cutting moment resolved for that material, the volume produced with its cost and consumed electricity, and the production rate and energy efficiency derived from them. What comes out is a single page complete enough to audit one operation or compare it against another.',
+      reportSections: [
+        'Process information',
+        'Production summary',
+        'Machine conditions',
+        'Critical cutting analysis',
+        'Performance indicators',
+      ],
+      openReport: 'Open the report',
+      reports: [
+        { id: 'Process #1', wood: 'Native beech' },
+        { id: 'Process #3', wood: 'DMDHEU' },
+        { id: 'Process #1021', wood: 'Lignamon 783' },
+      ],
     },
 
     maintenance: {
@@ -800,6 +816,22 @@ export const translations = {
       kpiProcesses: 'إجمالي العمليات',
       trendTitle: 'اتجاه سجلّ الإنتاج',
       distTitle: 'توزّع أنواع الخشب',
+      reportTitle: 'من عمليّة قطع إلى سجلّ هندسي',
+      reportLead:
+        'يمكن تصدير أي عمليّة في الأرشيف تقريراً كالتقارير الثلاثة أدناه، وهي ملفات حقيقية كتبها البرنامج لا نماذج توضيحية. فالقطع لا يبقى مجرّد قطع: يسجّل البرنامج وقت تنفيذ العملية ونوع الخشب المستخدَم، وشروط الآلة التي جرت وفقها، ومركّبات القوة السبع وعزم القطع محسوبةً لتلك المادة، والحجم المنتَج مع كلفته والكهرباء المستهلَكة، ثمّ معدّل الإنتاج وكفاءة الطاقة المشتقَّين منها. والحصيلة صفحة واحدة تكفي لمراجعة عمليّة أو مقارنتها بأخرى.',
+      reportSections: [
+        'معلومات العملية',
+        'ملخّص الإنتاج',
+        'شروط الآلة',
+        'التحليل الحرج للقطع',
+        'مؤشّرات الأداء',
+      ],
+      openReport: 'فتح التقرير',
+      reports: [
+        { id: 'العملية ١', wood: 'زان طبيعي' },
+        { id: 'العملية ٣', wood: 'DMDHEU' },
+        { id: 'العملية ١٠٢١', wood: 'Lignamon 783' },
+      ],
     },
 
     maintenance: {

@@ -2,9 +2,9 @@ import {
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
   PieChart, Pie, Cell, Legend,
 } from 'recharts';
-import { DollarSign, Zap, Box, ListChecks } from 'lucide-react';
+import { DollarSign, Zap, Box, ListChecks, FileText, ExternalLink } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
-import { Section, SectionHead, Reveal } from '../components/ui';
+import { Section, SectionHead, Reveal, asset } from '../components/ui';
 
 const TREND = [
   { p: 'P6', v: 2.1 }, { p: 'P7', v: 2.35 }, { p: 'P8', v: 2.6 },
@@ -20,6 +20,11 @@ const DIST = [
   { name: 'DMDHEU', value: 12, color: '#e0a53a' },
 ];
 
+// Real PDF reports exported by the application, in /public/reports — the order
+// matches analytics.reports in the translations, and each slug names both the
+// PDF and its first-page preview.
+const REPORTS = ['process-1', 'process-3', 'process-1021'];
+
 const ROWS = [
   ['4', 'Lignamon 783', '30×200', '1.600', '1920.00', '11.30'],
   ['7', 'Beech 16', '30×200', '2.350', '2820.00', '14.20'],
@@ -31,6 +36,7 @@ const ROWS = [
 export default function Analytics() {
   const { t } = useLang();
   const caps = t('analytics.capabilities');
+  const reports = t('analytics.reports');
   const kpis = [
     { icon: DollarSign, label: t('analytics.kpiFees'), value: '$32,702', color: 'var(--accent)' },
     { icon: Zap, label: t('analytics.kpiEnergy'), value: '164.8 kWh', color: 'var(--brand-green-lighter)' },
@@ -120,6 +126,58 @@ export default function Analytics() {
             ))}
           </div>
         </Reveal>
+      </div>
+
+      {/* The exported report itself — each card opens its original PDF */}
+      <div className="report-head">
+        <Reveal>
+          <h3 className="subheading report-title">
+            <FileText size={20} className="accent" />
+            {t('analytics.reportTitle')}
+          </h3>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <p className="body report-lead">{t('analytics.reportLead')}</p>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <div className="report-sections">
+            {t('analytics.reportSections').map((s) => (
+              <span key={s} className="pill">{s}</span>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="report-docs">
+        {reports.map((r, i) => (
+          <Reveal key={REPORTS[i]} delay={0.05 * i}>
+            <a
+              className="report-card card"
+              href={asset(`reports/${REPORTS[i]}.pdf`)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="report-shot">
+                <img
+                  src={asset(`reports/thumbs/${REPORTS[i]}.png`)}
+                  alt={`${r.id} — ${r.wood}`}
+                  width="850"
+                  height="1203"
+                  loading="lazy"
+                />
+                <span className="report-format mono">PDF</span>
+                <span className="report-open">
+                  <ExternalLink size={14} />
+                  {t('analytics.openReport')}
+                </span>
+              </span>
+              <span className="report-meta">
+                <span className="report-id">{r.id}</span>
+                <span className="report-wood">{r.wood}</span>
+              </span>
+            </a>
+          </Reveal>
+        ))}
       </div>
     </Section>
   );
