@@ -222,11 +222,12 @@ export const translations = {
         {
           title: 'Maintenance — configuration & status',
           desc:
-            'The Maintenance screen keeps the machine configuration in view: the blade set (350 mm diameter, 20 teeth, 3.9 mm kerf, 10 blades per arbor), the operating parameters (11 m/min feed, 64 m/s cutting velocity, 20° rake angle, 100 mm depth of cut) and the live machine status with the last check and next scheduled service. Preventive-maintenance scheduling and blade-wear tracking dock into this screen.',
+            'The Maintenance screen keeps the machine configuration in view — the blade set (350 mm diameter, 20 teeth, 3.9 mm kerf, 10 blades per arbor) and the operating parameters (11 m/min feed, 64 m/s cutting velocity, 20° rake angle, 100 mm depth of cut) — beside a live maintenance status carrying the number of monitored elements, the maintenance operations already carried out and their total cost. Predictive Element Health then counts how many of the physical elements are healthy, approaching end of life, critical or already past their expected life, measured against an adjustable warning threshold, and names the most worn element with the share of its life consumed alongside the freshest one. The table below lists every monitored element with its type and exact position on the machine, its consumed, default and remaining life, the percentage used, its status, the date of its last maintenance, and a Maintain action that logs a replacement.',
           points: [
-            'Blade configuration at a glance',
-            'Operating parameter snapshot',
-            'Machine status and service schedule',
+            'Blade and operating parameter snapshot',
+            'Predictive health across 16 monitored elements',
+            'Per-element life, position and status table',
+            'Maintain action logging every replacement',
           ],
         },
       ],
@@ -748,11 +749,12 @@ export const translations = {
         {
           title: 'الصيانة — الإعدادات والحالة',
           desc:
-            'تُبقي شاشة الصيانة إعدادات الآلة في المتناول: طقم الشفرات (قطر ٣٥٠ مم، ٢٠ سنّاً، شقّ ٣٫٩ مم، ١٠ شفرات لكل محور)، ومعاملات التشغيل (تغذية ١١ م/د، سرعة قطع ٦٤ م/ثا، زاوية ميل ٢٠°، عمق قطع ١٠٠ مم)، وحالة الآلة الحيّة مع آخر فحص وموعد الخدمة القادم. وفي هذه الشاشة ترسو جدولة الصيانة الوقائية وتتبّع اهتراء الشفرات.',
+            'تُبقي شاشة الصيانة إعدادات الآلة في المتناول — طقم الشفرات (قطر ٣٥٠ مم، ٢٠ سنّاً، شقّ ٣٫٩ مم، ١٠ شفرات لكل محور) ومعاملات التشغيل (تغذية ١١ م/د، سرعة قطع ٦٤ م/ثا، زاوية ميل ٢٠°، عمق قطع ١٠٠ مم) — إلى جانب حالة صيانة حيّة تحمل عدد العناصر المراقَبة وعمليات الصيانة المنفَّذة وكلفتها الإجمالية. ثمّ تُحصي لوحة الصحّة التنبّؤية للعناصر كم عنصراً ما يزال سليماً، وكم اقترب من نهاية عمره، وكم بلغ الحالة الحرجة أو تجاوز عمره المتوقَّع، قياساً على عتبة تحذير قابلة للضبط، وتُسمّي العنصر الأكثر اهتراءً مع نسبة ما استُهلك من عمره إلى جانب العنصر الأحدث. ويَسرُد الجدول أسفلها كل عنصر مراقَب مع نوعه وموضعه الدقيق في الآلة، وعمره المستهلَك والافتراضي والمتبقّي، والنسبة المئوية المستهلَكة، وحالته، وتاريخ آخر صيانة له، وزرّ صيانة يسجّل عملية الاستبدال.',
           points: [
-            'إعداد الشفرات بلمحة',
-            'لقطة لمعاملات التشغيل',
-            'حالة الآلة وجدول الخدمة',
+            'لمحة عن الشفرات ومعاملات التشغيل',
+            'صحّة تنبّؤية لـ١٦ عنصراً مراقَباً',
+            'جدول العمر والموضع والحالة لكل عنصر',
+            'زرّ صيانة يسجّل كل استبدال',
           ],
         },
       ],
