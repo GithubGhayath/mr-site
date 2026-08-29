@@ -23,7 +23,7 @@ const DIST = [
 // Real PDF reports exported by the application, in /public/reports — the order
 // matches analytics.reports in the translations, and each slug names both the
 // PDF and its first-page preview.
-const REPORTS = ['process-1', 'process-3', 'process-1021'];
+const REPORTS = ['process-1'];
 
 const ROWS = [
   ['4', 'Lignamon 783', '30×200', '1.600', '1920.00', '11.30'],
