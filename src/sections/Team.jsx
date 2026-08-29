@@ -1,4 +1,7 @@
-import { Briefcase, ClipboardList, BookOpen, Linkedin } from 'lucide-react';
+import {
+  Briefcase, ClipboardList, BookOpen, Linkedin,
+  Code2, DraftingCompass, Sigma,
+} from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal } from '../components/ui';
 
@@ -10,10 +13,20 @@ const LINKEDIN = [
   'https://www.linkedin.com/in/zoukaa-ahmad-335405432/',    // Zukaa
 ];
 
-// Single stylized first initial (strip the Eng./م. title and any diacritic).
-function firstInitial(name) {
-  const clean = name.replace(/^(Eng\.|م\.)\s*/i, '').trim();
-  return clean.charAt(0);
+// Identity marks, in the same order as team.members. Each one stands for what
+// that member actually contributed to the machine: the software, the 3D model
+// and its working drawings, and the engineering calculations behind them.
+const ROLE_ICON = [
+  Code2,            // Ghayath — built the desktop application and this site
+  DraftingCompass,  // Manar — 3D model in SolidWorks, assembly and working drawings
+  Sigma,            // Zukaa — reviewed and verified the engineering calculations
+];
+
+// Decorative: the enclosing .team-photo is already aria-hidden, and the role
+// each mark stands for is written out in the card text below it.
+function RoleMark({ index }) {
+  const Icon = ROLE_ICON[index];
+  return Icon ? <Icon size={48} strokeWidth={1.5} /> : null;
 }
 
 export default function Team() {
@@ -51,7 +64,7 @@ export default function Team() {
                     );
                   })}
                 </svg>
-                <span className="team-initial">{firstInitial(m.name)}</span>
+                <span className="team-initial"><RoleMark index={i} /></span>
               </div>
               <h3 className="team-name">{m.name}</h3>
               <span className="team-role"><Briefcase size={14} />{m.role}</span>
