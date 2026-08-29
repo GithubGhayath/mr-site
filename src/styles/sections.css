@@ -413,6 +413,59 @@ html[dir='rtl'] .scroll-hint { transform: translateX(50%); }
 .ops-row { border-top: 1px solid var(--border); }
 .ops-row:hover { background: var(--card-hover); }
 
+/* Exported process reports */
+.report-head { margin-top: clamp(2.6rem, 6vw, 3.6rem); margin-bottom: 1.5rem; }
+.report-title { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; font-size: 1.25rem; }
+.report-lead { max-width: 72ch; }
+.report-sections { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.1rem; }
+.report-docs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+/* the Reveal wrapper is the grid child — stretch it so cards share a height */
+.report-docs > * { display: flex; }
+.report-card {
+  flex: 1; width: 100%;
+  display: flex; flex-direction: column;
+  padding: 0; overflow: hidden;
+}
+.report-card:hover { border-color: var(--accent); }
+.report-shot {
+  position: relative; display: block;
+  aspect-ratio: 210 / 245;          /* A4 portrait, cropped past the trailing blank margin */
+  background: #fff;                 /* the sheet is black on white paper */
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.report-shot img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  transition: transform 0.4s var(--ease);
+}
+.report-card:hover .report-shot img { transform: scale(1.03); }
+.report-format {
+  position: absolute; inset-inline-start: 0.65rem; top: 0.65rem;
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em;
+  padding: 0.2rem 0.5rem; border-radius: 6px;
+  background: rgba(10, 18, 16, 0.74); color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.report-open {
+  position: absolute; inset-inline-end: 0.65rem; bottom: 0.65rem;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--font-head); font-size: 0.8rem; font-weight: 600;
+  padding: 0.38rem 0.75rem; border-radius: 999px;
+  background: var(--accent); color: #fff;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.report-card:hover .report-open,
+.report-card:focus-visible .report-open { opacity: 1; transform: none; }
+/* touch devices never hover — keep the affordance visible there */
+@media (hover: none) {
+  .report-open { opacity: 1; transform: none; }
+}
+.report-meta { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.9rem 1.1rem 1rem; }
+.report-id { font-family: var(--font-head); font-size: 0.98rem; font-weight: 700; }
+.report-wood { font-size: 0.85rem; color: var(--text-dim); }
+
 /* ---------------- MAINTENANCE ---------------- */
 .mnt-highlight {
   display: inline-flex; align-items: center; gap: 0.6rem;
@@ -683,6 +736,7 @@ html[dir='rtl'] .footer-right { align-items: flex-start; }
 
 @media (max-width: 720px) {
   .app-body { grid-template-columns: 1fr; }
+  .report-docs { grid-template-columns: 1fr 1fr; }
   .app-side { flex-direction: row; overflow-x: auto; }
   .app-brand { display: none; }
   .app-nav { white-space: nowrap; }
@@ -702,6 +756,7 @@ html[dir='rtl'] .footer-right { align-items: flex-start; }
 
 @media (max-width: 460px) {
   .kpi-row { grid-template-columns: 1fr; }
+  .report-docs { grid-template-columns: 1fr; }
   .dwg-grid { grid-template-columns: 1fr; }
   .hero-cta .btn { width: 100%; justify-content: center; }
 }
