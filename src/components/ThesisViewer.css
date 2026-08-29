@@ -1,0 +1,134 @@
+/* ============================================================
+   Protected thesis viewer — pages painted to canvas by pdf.js,
+   so the browser's own PDF viewer (and its Download / Print
+   controls) is never involved.
+   ============================================================ */
+
+.thesis-viewer {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.thesis-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.thesis-count {
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+.thesis-zoom {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.thesis-zoom-btn {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.thesis-zoom-btn:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.thesis-zoom-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.thesis-zoom-val {
+  min-width: 3.4em;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--text-dim);
+}
+
+.thesis-pages {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-2);
+}
+
+.thesis-page {
+  position: relative;
+  max-width: 100%;
+}
+.thesis-canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: #fff; /* the page ground, before it is painted */
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: 0 6px 18px -12px rgba(0, 0, 0, 0.5);
+}
+.thesis-page-num {
+  position: absolute;
+  inset-inline-end: 0.4rem;
+  bottom: 0.4rem;
+  font-size: 0.66rem;
+  padding: 0.12rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(10, 18, 16, 0.7);
+  color: #fff;
+}
+
+/* ---------- loading / failure ---------- */
+.thesis-state {
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+.thesis-spin {
+  animation: thesisSpin 1s linear infinite;
+  color: var(--accent);
+}
+@keyframes thesisSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- print ----------
+   The pages are withheld from paper (and from "Print → Save as PDF"), which is
+   the main way a canvas viewer would otherwise leak the document. */
+.thesis-print-note {
+  display: none;
+}
+@media print {
+  .thesis-toolbar,
+  .thesis-pages {
+    display: none !important;
+  }
+  .thesis-print-note {
+    display: block;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+}
