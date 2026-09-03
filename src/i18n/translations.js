@@ -355,6 +355,13 @@ export const translations = {
       video: 'Project video',
       photos: 'Photos',
       cad: 'CAD drawings',
+      modelTitle: 'The machine in 3D',
+      modelLead:
+        'The assembled machine, exported from the SolidWorks model. Drag to turn it, scroll to zoom, and hold the right mouse button to pan.',
+      modelHint: 'Drag to rotate · scroll to zoom',
+      modelLoading: 'Loading the model…',
+      modelError: 'The model could not be loaded.',
+      modelReset: 'Reset the view',
       cadTitle: 'Engineering drawing archive',
       cadLead:
         'Manufacturing and assembly drawings of the main parts of the machine. Open any sheet to read the original PDF at the resolution it was drawn.',
@@ -958,6 +965,13 @@ export const translations = {
       video: 'فيديو المشروع',
       photos: 'الصور',
       cad: 'مخطّطات CAD',
+      modelTitle: 'الآلة بثلاثة أبعاد',
+      modelLead:
+        'الآلة مجمّعةً، مُصدَّرة من نموذج سوليدوركس. اسحب لتديرها، وحرّك عجلة الفأرة للتكبير، واضغط الزر الأيمن لتحريكها.',
+      modelHint: 'اسحب للتدوير · حرّك العجلة للتكبير',
+      modelLoading: 'جارٍ تحميل النموذج…',
+      modelError: 'تعذّر تحميل النموذج.',
+      modelReset: 'إعادة ضبط العرض',
       cadTitle: 'أرشيف المخطّطات الهندسية',
       cadLead:
         'مخطّطات التصنيع والتجميع لأهمّ أجزاء الآلة. افتح أي لوحة لقراءة ملف PDF الأصلي بالدقّة التي رُسم بها.',

@@ -1,0 +1,80 @@
+/* View-only 3D model viewer — orbit, zoom and pan, no export affordance. */
+.model-viewer {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 52vh, 560px);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--surface-2);
+  touch-action: none; /* one-finger drag orbits instead of scrolling the page */
+}
+.model-stage {
+  position: absolute;
+  inset: 0;
+}
+.model-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.model-stage canvas:active {
+  cursor: grabbing;
+}
+
+.model-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+.model-spin {
+  color: var(--accent);
+  animation: modelSpin 1s linear infinite;
+}
+@keyframes modelSpin {
+  to { transform: rotate(360deg); }
+}
+
+.model-hint {
+  position: absolute;
+  inset-inline-start: 0.7rem;
+  bottom: 0.7rem;
+  font-size: 0.74rem;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.model-reset {
+  position: absolute;
+  inset-inline-end: 0.7rem;
+  bottom: 0.7rem;
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.model-reset:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+@media (max-width: 460px) {
+  .model-hint { display: none; } /* the gesture is obvious on touch */
+}

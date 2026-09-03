@@ -671,6 +671,13 @@ html[dir='rtl'] .line-arrow { transform: translateY(-50%) scaleX(-1); }
 .gallery-caption { display: block; padding: 0.6rem 1rem; font-size: 0.85rem; color: var(--text-soft); }
 .gallery-note { text-align: center; margin-top: 1.8rem; color: var(--text-dim); font-size: 0.9rem; }
 
+/* The machine model viewer */
+.model-block { margin-top: clamp(2.2rem, 5vw, 3rem); }
+.model-title { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; font-size: 1.25rem; }
+.model-lead { max-width: 68ch; }
+.model-card { margin-top: 1.2rem; padding: 0.6rem; }
+.model-card:hover { transform: none; }  /* the card holds a control surface */
+
 /* Engineering drawing archive (CAD sheets) */
 .dwg-head { margin-top: clamp(2.6rem, 6vw, 3.6rem); margin-bottom: 1.5rem; }
 .dwg-title { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; font-size: 1.25rem; }
