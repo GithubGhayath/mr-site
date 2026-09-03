@@ -1,7 +1,9 @@
-import { Image, Video, Box, Ruler, ExternalLink } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Image, Video, Box, Ruler, ExternalLink, Boxes } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import { Section, SectionHead, Reveal, asset } from '../components/ui';
 import { config } from '../data/config';
+import MachineViewer from '../components/MachineViewer';
 
 // Engineering drawing sheets in /public/drawings — the order matches gallery.drawings
 // in the translations, and each slug names both the PDF and its preview image.
@@ -25,6 +27,27 @@ const DRAWINGS = [
 export default function Gallery() {
   const { t } = useLang();
   const drawings = t('gallery.drawings');
+  // three.js and the model are heavy; hold them back until the viewer is near.
+  const [modelInView, setModelInView] = useState(false);
+  const modelSlotRef = useRef(null);
+
+  useEffect(() => {
+    if (!config.MACHINE_MODEL || modelInView) return undefined;
+    const check = () => {
+      const el = modelSlotRef.current;
+      if (!el) return;
+      const box = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+      if (box.top < vh * 1.5 && box.bottom > -vh) setModelInView(true);
+    };
+    check();
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    return () => {
+      window.removeEventListener('scroll', check);
+      window.removeEventListener('resize', check);
+    };
+  }, [modelInView]);
   const cats = [
     { icon: Image, label: t('gallery.photos') },
     { icon: Video, label: t('gallery.video') },
@@ -49,6 +72,28 @@ export default function Gallery() {
             <div className="gallery-item gallery-video card">
               <video src={asset(config.PROJECT_VIDEO)} controls preload="metadata" />
               <span className="gallery-caption">{t('gallery.video')}</span>
+            </div>
+          </Reveal>
+        </div>
+      )}
+
+      {/* The machine model — view only: orbit, zoom and pan */}
+      {config.MACHINE_MODEL && (
+        <div className="model-block">
+          <Reveal>
+            <h3 className="subheading model-title">
+              <Boxes size={20} className="accent" />
+              {t('gallery.modelTitle')}
+            </h3>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <p className="body model-lead">{t('gallery.modelLead')}</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="model-card card" ref={modelSlotRef}>
+              {modelInView
+                ? <MachineViewer src={asset(config.MACHINE_MODEL)} />
+                : <div className="model-viewer" />}
             </div>
           </Reveal>
         </div>
