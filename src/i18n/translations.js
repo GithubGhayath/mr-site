@@ -362,6 +362,8 @@ export const translations = {
       modelLoading: 'Loading the model…',
       modelError: 'The model could not be loaded.',
       modelReset: 'Reset the view',
+      modelFullscreen: 'Fullscreen',
+      modelExitFullscreen: 'Exit fullscreen',
       cadTitle: 'Engineering drawing archive',
       cadLead:
         'Manufacturing and assembly drawings of the main parts of the machine. Open any sheet to read the original PDF at the resolution it was drawn.',
@@ -972,6 +974,8 @@ export const translations = {
       modelLoading: 'جارٍ تحميل النموذج…',
       modelError: 'تعذّر تحميل النموذج.',
       modelReset: 'إعادة ضبط العرض',
+      modelFullscreen: 'ملء الشاشة',
+      modelExitFullscreen: 'إنهاء ملء الشاشة',
       cadTitle: 'أرشيف المخطّطات الهندسية',
       cadLead:
         'مخطّطات التصنيع والتجميع لأهمّ أجزاء الآلة. افتح أي لوحة لقراءة ملف PDF الأصلي بالدقّة التي رُسم بها.',

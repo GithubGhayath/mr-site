@@ -56,10 +56,14 @@
   pointer-events: none;
 }
 
-.model-reset {
+.model-tools {
   position: absolute;
   inset-inline-end: 0.7rem;
   bottom: 0.7rem;
+  display: flex;
+  gap: 0.4rem;
+}
+.model-tool {
   display: inline-grid;
   place-items: center;
   width: 32px;
@@ -70,9 +74,22 @@
   color: var(--text-soft);
   transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
-.model-reset:hover {
+.model-tool:hover {
   color: var(--accent);
   border-color: var(--accent);
+}
+
+.model-progress {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+/* fullscreen: the viewer takes the whole screen, keeping its own background */
+.model-viewer:fullscreen {
+  height: 100vh;
+  width: 100vw;
+  border-radius: 0;
+  background: var(--bg);
 }
 
 @media (max-width: 460px) {
