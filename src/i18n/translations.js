@@ -4,6 +4,11 @@
 
 export const translations = {
   en: {
+    splash: {
+      loading: 'Loading SMRM — Smart Multi Ripping Machine',
+      tagline: 'Smart Multi Ripping Machine',
+      ready: 'SMRM READY',
+    },
     dir: 'ltr',
     langName: 'English',
 
@@ -616,6 +621,11 @@ export const translations = {
 
   // ──────────────────────────────────────────────────────────────────
   ar: {
+    splash: {
+      loading: 'جارٍ تحميل SMRM — آلة التشريح المتعدّدة الذكية',
+      tagline: 'آلة التشريح المتعدّدة الذكية',
+      ready: 'SMRM جاهزة',
+    },
     dir: 'rtl',
     langName: 'العربية',
 
