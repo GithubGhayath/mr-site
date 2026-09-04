@@ -407,7 +407,7 @@ html[dir='rtl'] .scroll-hint { transform: translateX(50%); }
 .mon-card-head .subheading { display: flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; }
 .mon-unit { font-size: 0.8rem; color: var(--text-dim); }
 .live-chart { width: 100%; height: 200px; }
-.mon-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1rem; }
+.mon-stats { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.8rem; margin-top: 1rem; }
 .stat-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: 0.8rem; }
 .stat-name { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
 .stat-swatch { width: 10px; height: 10px; border-radius: 3px; }
@@ -899,11 +899,15 @@ html[dir='rtl'] .footer-right { align-items: flex-start; }
   .screen-row,
   .mnt-intro-grid,
   .alert-grid,
-  .sysdoc-grid,
-  .report-grid { grid-template-columns: 1fr; }
+  .sysdoc-grid { grid-template-columns: 1fr; }
+  /* a bare 1fr track still carries an implicit "auto" minimum, so a wide
+     child (the fixed-width report card / monitoring card content) can force
+     the track past the viewport on narrow screens; minmax(0, 1fr) removes
+     that floor so the track actually shrinks to fit. */
+  .report-grid { grid-template-columns: minmax(0, 1fr); }
   /* stacked: screenshot always first, text after */
   .screen-row.flip .screen-shot { order: 0; }
-  .monitoring-grid { grid-template-columns: 1fr; }
+  .monitoring-grid { grid-template-columns: minmax(0, 1fr); }
   .mnt-steps { grid-template-columns: repeat(2, 1fr); }
   .mnt-actions { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
