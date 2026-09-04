@@ -27,7 +27,7 @@ export const config = {
   // Web-ready 3D model of the machine in /public, shown in the Gallery.
   // SolidWorks cannot be read by a browser, so export the part as glTF/GLB
   // (File > Save As > .GLB, SolidWorks 2019+) or STL and name it here.
-  MACHINE_MODEL: '', // e.g. 'machine.glb'
+  MACHINE_MODEL: 'machine/smrm.glb',
   // Desktop-application demo video in /public (shown in the Software section).
   APP_DEMO_VIDEO: 'app-demo.mp4',
 };
