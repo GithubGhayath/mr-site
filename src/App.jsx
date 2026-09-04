@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import SawBlade from './components/SawBlade';
+import Splash from './components/Splash';
 import Hero from './sections/Hero';
 import Overview from './sections/Overview';
 import Machine from './sections/Machine';
@@ -18,8 +20,11 @@ import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
     <>
+      {showSplash && <Splash onDone={() => setShowSplash(false)} />}
       <SawBlade />
       <Navbar />
       <main style={{ position: 'relative', zIndex: 1 }}>

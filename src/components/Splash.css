@@ -1,0 +1,327 @@
+/* Splash: a short 2D story — blueprint → mechanism → material → multi-rip →
+   intelligence → SMRM ready — told with SVG + CSS keyframes only. No
+   animation library, nothing fetched: it can start on the very first paint. */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  /* the site-wide prefers-reduced-motion rule (index.css) forces this to
+     0.001ms for users who asked for it, so no separate branch is needed here */
+  transition: opacity 450ms var(--ease);
+}
+.splash-exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-stage {
+  width: min(90vw, 640px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.9rem, 3vw, 1.6rem);
+}
+
+.m-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible; /* the log/strips travel slightly past the viewBox edge */
+}
+/* the scene reads left-to-right as material flow; mirror it for RTL so the
+   log still enters from the reading "start" side, matching the site's
+   existing .icon-flip / .line-arrow convention */
+html[dir='rtl'] .m-svg {
+  transform: scaleX(-1);
+}
+
+/* ---------- structure ---------- */
+.m-frame line {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: mDraw 350ms linear forwards;
+}
+.m-frame line:nth-child(1) {
+  stroke-dasharray: 660;
+  stroke-dashoffset: 660;
+  animation-duration: 450ms;
+}
+.m-rail {
+  stroke: var(--text-dim);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 640;
+  stroke-dashoffset: 640;
+  animation: mDraw 500ms var(--ease) forwards;
+  animation-delay: 120ms;
+}
+.m-rail-bottom {
+  animation-delay: 200ms;
+}
+.m-belt-travel {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 3 10;
+  fill: none;
+  opacity: 0.8;
+  animation: mBeltTravel 900ms linear infinite;
+  animation-delay: 1000ms;
+}
+.m-roller {
+  fill: var(--surface-2);
+  stroke: var(--border-strong);
+  stroke-width: 1.2;
+}
+
+/* ---------- arbor + blades ---------- */
+.m-arbor {
+  stroke: var(--text-dim);
+  stroke-width: 3;
+  stroke-dasharray: 230;
+  stroke-dashoffset: 230;
+  animation: mDraw 350ms var(--ease) forwards;
+  animation-delay: 420ms;
+}
+.m-blade-rim {
+  fill: var(--surface-2);
+  stroke: var(--text-soft);
+  stroke-width: 1.5;
+}
+.m-blade-web {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1;
+}
+.m-blade-tooth {
+  stroke: var(--text-soft);
+  stroke-width: 2;
+}
+.m-blade-hub {
+  fill: var(--accent);
+}
+.m-blade {
+  opacity: 0;
+  transform: scale(0.4);
+  animation: mBladeIn 420ms var(--ease) forwards;
+  animation-delay: 650ms;
+}
+.m-blade-2 { animation-delay: 720ms; }
+.m-blade-3 { animation-delay: 790ms; }
+.m-blade-spin {
+  animation: mSpin 900ms linear infinite;
+  animation-delay: 1050ms;
+}
+
+.m-pulley {
+  fill: var(--surface-2);
+  stroke: var(--text-soft);
+  stroke-width: 1.5;
+}
+.m-pulley-spoke {
+  stroke: var(--text-soft);
+  stroke-width: 1.5;
+}
+.m-pulley-main,
+.m-pulley-main-spoke {
+  transform-origin: 590px 190px;
+  animation: mSpin 900ms linear infinite;
+  animation-delay: 1050ms;
+}
+
+/* ---------- motor + belt drive ---------- */
+.m-motor-body {
+  fill: var(--surface-2);
+  stroke: var(--text-soft);
+  stroke-width: 1.5;
+}
+.m-pulley-motor,
+.m-pulley-motor-spoke {
+  transform-origin: 592px 252px;
+  animation: mSpin 900ms linear infinite;
+  animation-delay: 1050ms;
+}
+.m-belt-drive {
+  stroke: var(--text-dim);
+  stroke-width: 2;
+}
+.m-motor-group {
+  opacity: 0;
+  animation: mFadeIn 400ms var(--ease) forwards;
+  animation-delay: 750ms;
+}
+
+/* ---------- material: log in, strips out ---------- */
+.m-log {
+  animation: mLogEnter 750ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 1150ms;
+}
+.m-log-body {
+  fill: var(--brand-orange-light);
+}
+.m-log-end {
+  fill: var(--brand-orange);
+}
+
+.m-strip {
+  opacity: 0;
+  fill: var(--brand-orange-light);
+  animation: mStripOut 950ms cubic-bezier(0.3, 0, 0.2, 1) forwards;
+  animation-delay: 1830ms;
+}
+
+.m-cut-flash line {
+  stroke: #fff;
+  stroke-width: 3;
+  opacity: 0;
+  animation: mCutFlash 220ms ease-out forwards;
+  animation-delay: 1800ms;
+}
+
+/* ---------- intelligence: sensors + signal pulses ---------- */
+.m-node {
+  fill: var(--accent);
+  opacity: 0;
+  animation: mNodeIn 500ms var(--ease) forwards, mNodePulse 2200ms ease-in-out infinite;
+  animation-delay: 2000ms, 2500ms;
+}
+.m-signal-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+  stroke-dasharray: 5 7;
+  opacity: 0;
+  animation: mFadeIn 300ms var(--ease) forwards, mSignalTravel 1400ms linear infinite;
+  animation-delay: 2050ms, 2050ms;
+}
+
+/* ---------- SMRM identity ---------- */
+.splash-id {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+.splash-word,
+.splash-tagline,
+.splash-uni,
+.splash-ready {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: mTextIn 480ms var(--ease) forwards;
+}
+.splash-word {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  animation-delay: 2150ms;
+}
+.splash-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 2.2vw, 0.85rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  animation-delay: 2300ms;
+}
+.splash-uni {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  animation-delay: 2420ms;
+}
+.splash-ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--brand-green-lighter);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  animation-delay: 2600ms;
+}
+.splash-ready-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand-green-lighter);
+  animation: mDotPulse 1.4s infinite;
+}
+
+/* ---------- keyframes ---------- */
+@keyframes mDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes mBeltTravel {
+  to { stroke-dashoffset: -26; }
+}
+@keyframes mSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes mBladeIn {
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes mFadeIn {
+  to { opacity: 1; }
+}
+@keyframes mLogEnter {
+  0% { transform: translateX(0); opacity: 1; }
+  85% { transform: translateX(460px); opacity: 1; }
+  100% { transform: translateX(460px); opacity: 0; }
+}
+@keyframes mStripOut {
+  0% { opacity: 0; transform: translateX(0); }
+  15% { opacity: 1; transform: translateX(0); }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(270px); }
+}
+@keyframes mCutFlash {
+  0% { opacity: 0; }
+  45% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes mNodeIn {
+  to { opacity: 1; }
+}
+@keyframes mNodePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+@keyframes mSignalTravel {
+  to { stroke-dashoffset: -24; }
+}
+@keyframes mTextIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes mDotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ---------- reduced motion: settle instantly, hold briefly, fade ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .splash * {
+    animation-delay: 0ms !important;
+  }
+}
+
+/* ---------- responsive: fewer secondary marks on small phones ---------- */
+@media (max-width: 480px) {
+  .m-signal-line {
+    display: none;
+  }
+}
